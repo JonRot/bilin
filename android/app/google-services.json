@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "743693361963",
+    "project_id": "ensino-bilingue",
+    "storage_bucket": "ensino-bilingue.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743693361963:android:6758f08ca2bd6078281b6e",
+        "android_client_info": {
+          "package_name": "com.ensinobilin.ensinobilingue"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBRyUsxuaL1LoaTbImvXBxd0HDQpJrOkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743693361963:android:7bd80a88c3272829281b6e",
+        "android_client_info": {
+          "package_name": "com.ensinobilin.ensinobilingueapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBRyUsxuaL1LoaTbImvXBxd0HDQpJrOkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
