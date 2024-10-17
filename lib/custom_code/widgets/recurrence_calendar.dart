@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom widgets
-
 import 'package:syncfusion_flutter_calendar/calendar.dart'; // Import the Syncfusion calendar package
 
 class RecurrenceCalendar extends StatefulWidget {
@@ -36,9 +35,6 @@ class RecurrenceCalendar extends StatefulWidget {
 class RecurrenceCalendarState extends State<RecurrenceCalendar> {
   final CalendarController _calendarController = CalendarController();
   late _AppointmentDataSource _dataSource;
-  CalendarView _view = CalendarView.month; // Default set to Month view
-  CalendarView? _previousView;
-  DateTime? _selectedDate;
 
   @override
   void initState() {
@@ -46,6 +42,78 @@ class RecurrenceCalendarState extends State<RecurrenceCalendar> {
     _dataSource = _AppointmentDataSource(
         widget.appointments, widget.color); // Pass color to data source
     super.initState();
+  }
+
+  void _toggleView() {
+    setState(() {
+      _calendarController.view = _calendarController.view == CalendarView.month
+          ? CalendarView.workWeek
+          : CalendarView.month;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          // The calendar placed at the bottom of the stack
+          Positioned.fill(
+            child: _getCalendar(),
+          ),
+          // Toggle button positioned on top of the calendar
+          Positioned(
+            top: -6.0,
+            right: 16.0,
+            child: IconButton(
+              icon: Icon(
+                _calendarController.view == CalendarView.month
+                    ? Icons.view_week
+                    : Icons.calendar_view_month,
+                color: Colors.black,
+              ),
+              onPressed: _toggleView,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  SfCalendar _getCalendar() {
+    return SfCalendar(
+      controller: _calendarController,
+      view: _calendarController.view ??
+          CalendarView.month, // Provide a default if view is null
+      onTap: _onCalendarTapped,
+      todayHighlightColor:
+          const Color(0xFFF3CD6B), // Yellow highlight for today
+      specialRegions: _getSpecialRegions(),
+      monthViewSettings: const MonthViewSettings(
+        appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
+        showAgenda: false,
+        showTrailingAndLeadingDates: false,
+      ),
+      timeSlotViewSettings: const TimeSlotViewSettings(
+        startHour: 8,
+        endHour: 19,
+        timeIntervalHeight: 50,
+      ),
+      viewHeaderStyle: const ViewHeaderStyle(
+        backgroundColor: Colors.transparent,
+        dayTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+          fontSize: 12,
+        ),
+      ),
+      headerStyle: const CalendarHeaderStyle(
+        textAlign: TextAlign.center,
+        backgroundColor: Colors.white,
+      ),
+      dataSource: _dataSource,
+      selectionDecoration: const BoxDecoration(), // Remove selection outline
+    );
   }
 
   void _onCalendarTapped(CalendarTapDetails details) async {
@@ -58,93 +126,12 @@ class RecurrenceCalendarState extends State<RecurrenceCalendar> {
     if (_calendarController.view == CalendarView.month ||
         _calendarController.view == CalendarView.workWeek) {
       setState(() {
-        _previousView = _calendarController.view;
-        _selectedDate = details.date;
         _calendarController.view = CalendarView.day;
         if (details.date != null) {
           _calendarController.displayDate = details.date;
         }
       });
     }
-  }
-
-  void _goBackToPreviousView() {
-    setState(() {
-      if (_previousView != null) {
-        _calendarController.view = _previousView!;
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF3CD6B), // Yellow header background
-        title: const Text(
-          'Agenda',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-      ),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            child: _getCalendar(),
-          ),
-        ],
-      ),
-    );
-  }
-
-  SfCalendar _getCalendar() {
-    return SfCalendar(
-      controller: _calendarController,
-      allowedViews: const [
-        CalendarView.workWeek,
-        CalendarView.month,
-      ],
-      onTap: _onCalendarTapped,
-      todayHighlightColor:
-          const Color(0xFFF3CD6B), // Yellow highlight for today
-      specialRegions: _getSpecialRegions(),
-      monthViewSettings: MonthViewSettings(
-        appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
-        showAgenda: false,
-        dayFormat: 'EEE', // Show short day names
-        numberOfWeeksInView: 5,
-        monthCellStyle: MonthCellStyle(
-          todayBackgroundColor: Colors.transparent, // Remove box highlight
-          trailingDatesBackgroundColor: Colors.white,
-          leadingDatesBackgroundColor: Colors.white,
-          backgroundColor: Colors.white,
-          textStyle: const TextStyle(
-            color: Colors.black,
-          ),
-          trailingDatesTextStyle: const TextStyle(
-            color: Colors.grey,
-          ),
-          leadingDatesTextStyle: const TextStyle(
-            color: Colors.grey,
-          ),
-          todayTextStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.red,
-          ),
-        ),
-      ),
-      timeSlotViewSettings: TimeSlotViewSettings(
-        startHour: 8,
-        endHour: 19,
-        timeIntervalHeight: 50,
-      ),
-      headerStyle: const CalendarHeaderStyle(
-        textAlign: TextAlign.center,
-        backgroundColor: Colors.white,
-      ),
-      selectionDecoration: const BoxDecoration(),
-      cellEndPadding: 5,
-      dataSource: _dataSource,
-    );
   }
 
   List<TimeRegion> _getSpecialRegions() {
@@ -162,16 +149,42 @@ class RecurrenceCalendarState extends State<RecurrenceCalendar> {
 class _AppointmentDataSource extends CalendarDataSource {
   _AppointmentDataSource(List<AppointmentsRecord> source, Color color) {
     appointments = source.map((record) {
-      final recurrenceRule = record.recurrenceRule;
-      final bool isRepeat = record.appointmentRepeat ?? true;
+      // Determine the weekday of the start date
+      final dayOfWeek = _getDayOfWeek(record.appointmentDate ?? DateTime.now());
+
+      // Create the recurrence rule dynamically based on the weekday
+      final recurrenceRule = 'FREQ=WEEKLY;INTERVAL=1;BYDAY=$dayOfWeek';
+
       return Appointment(
         startTime: record.appointmentDate ?? DateTime.now(),
-        endTime:
-            (record.appointmentDate ?? DateTime.now()).add(Duration(hours: 1)),
+        endTime: (record.appointmentDate ?? DateTime.now())
+            .add(const Duration(hours: 1)),
         subject: record.subject ?? 'No Subject',
         color: color,
-        recurrenceRule: isRepeat ? recurrenceRule : null,
+        recurrenceRule: recurrenceRule,
       );
     }).toList();
+  }
+
+  // Helper function to convert a DateTime weekday to BYDAY string
+  String _getDayOfWeek(DateTime date) {
+    switch (date.weekday) {
+      case DateTime.monday:
+        return 'MO';
+      case DateTime.tuesday:
+        return 'TU';
+      case DateTime.wednesday:
+        return 'WE';
+      case DateTime.thursday:
+        return 'TH';
+      case DateTime.friday:
+        return 'FR';
+      case DateTime.saturday:
+        return 'SA';
+      case DateTime.sunday:
+        return 'SU';
+      default:
+        return 'MO'; // Default to Monday if somehow the weekday is invalid
+    }
   }
 }

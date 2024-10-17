@@ -24,10 +24,17 @@ class AgendamentoModel extends FlutterFlowModel<AgendamentoWidget> {
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay;
   // State field(s) for tempoManha widget.
-  FormFieldController<List<String>>? tempoManhaValueController;
-  String? get tempoManhaValue => tempoManhaValueController?.value?.firstOrNull;
-  set tempoManhaValue(String? val) =>
-      tempoManhaValueController?.value = val != null ? [val] : [];
+  FormFieldController<List<String>>? tempoManhaValueController1;
+  String? get tempoManhaValue1 =>
+      tempoManhaValueController1?.value?.firstOrNull;
+  set tempoManhaValue1(String? val) =>
+      tempoManhaValueController1?.value = val != null ? [val] : [];
+  // State field(s) for tempoManha widget.
+  FormFieldController<List<String>>? tempoManhaValueController2;
+  String? get tempoManhaValue2 =>
+      tempoManhaValueController2?.value?.firstOrNull;
+  set tempoManhaValue2(String? val) =>
+      tempoManhaValueController2?.value = val != null ? [val] : [];
   // State field(s) for problemDescription widget.
   FocusNode? problemDescriptionFocusNode;
   TextEditingController? problemDescriptionTextController;

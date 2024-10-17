@@ -82,13 +82,3 @@ String formatDateTimeChat(DateTime lastMessageTime) {
     return DateFormat('d/M H:mm').format(lastMessageTime);
   }
 }
-
-String? generateRecurrenceRule(bool appointmentRepeat) {
-  if (appointmentRepeat) {
-    // Indefinite daily recurrence
-    return 'FREQ=WEEKLY;INTERVAL=1';
-  } else {
-    // Stop recurrence by returning an empty string or null
-    return null;
-  }
-}

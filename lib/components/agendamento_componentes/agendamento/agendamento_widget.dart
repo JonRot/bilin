@@ -100,7 +100,27 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
           ),
         ],
       ),
-      'choiceChipsOnPageLoadAnimation': AnimationInfo(
+      'choiceChipsOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 200.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: const Offset(0.0, 110.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'choiceChipsOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 200.ms),
@@ -991,6 +1011,94 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 4.0, 0.0, 0.0),
+                                      child: FlutterFlowChoiceChips(
+                                        options: const [
+                                          ChipData('MO'),
+                                          ChipData('TU'),
+                                          ChipData('WE'),
+                                          ChipData('TH'),
+                                          ChipData('FR')
+                                        ],
+                                        onChanged: (val) => safeSetState(() =>
+                                            _model.tempoManhaValue1 =
+                                                val?.firstOrNull),
+                                        selectedChipStyle: ChipStyle(
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                          iconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent2,
+                                          iconSize: 18.0,
+                                          labelPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 4.0, 12.0, 4.0),
+                                          elevation: 0.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent2,
+                                          borderWidth: 1.0,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        unselectedChipStyle: ChipStyle(
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                letterSpacing: 0.0,
+                                              ),
+                                          iconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
+                                          iconSize: 18.0,
+                                          labelPadding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 4.0, 12.0, 4.0),
+                                          elevation: 0.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          borderWidth: 2.0,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        chipSpacing: 4.0,
+                                        rowSpacing: 8.0,
+                                        multiselect: false,
+                                        initialized:
+                                            _model.tempoManhaValue1 != null,
+                                        alignment: WrapAlignment.start,
+                                        controller: _model
+                                                .tempoManhaValueController1 ??=
+                                            FormFieldController<List<String>>(
+                                          ['9:00'],
+                                        ),
+                                        wrapped: true,
+                                      ).animateOnPageLoad(animationsMap[
+                                          'choiceChipsOnPageLoadAnimation1']!),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1079,8 +1187,9 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
                                                 ChipData('17:30')
                                               ],
                                               onChanged: (val) => safeSetState(
-                                                  () => _model.tempoManhaValue =
-                                                      val?.firstOrNull),
+                                                  () =>
+                                                      _model.tempoManhaValue2 =
+                                                          val?.firstOrNull),
                                               selectedChipStyle: ChipStyle(
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -1147,18 +1256,18 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
                                               rowSpacing: 8.0,
                                               multiselect: false,
                                               initialized:
-                                                  _model.tempoManhaValue !=
+                                                  _model.tempoManhaValue2 !=
                                                       null,
                                               alignment: WrapAlignment.start,
                                               controller: _model
-                                                      .tempoManhaValueController ??=
+                                                      .tempoManhaValueController2 ??=
                                                   FormFieldController<
                                                       List<String>>(
                                                 ['9:00'],
                                               ),
                                               wrapped: true,
                                             ).animateOnPageLoad(animationsMap[
-                                                'choiceChipsOnPageLoadAnimation']!),
+                                                'choiceChipsOnPageLoadAnimation2']!),
                                           ),
                                         ],
                                       ),
@@ -1291,8 +1400,8 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
                                           'buttonOnPageLoadAnimation1']!),
                                       if ((_model.userRefSelected1?.reference !=
                                               null) &&
-                                          (_model.tempoManhaValue != null &&
-                                              _model.tempoManhaValue != ''))
+                                          (_model.tempoManhaValue2 != null &&
+                                              _model.tempoManhaValue2 != ''))
                                         FutureBuilder<List<AppointmentsRecord>>(
                                           future: queryAppointmentsRecordOnce(
                                             singleRecord: true,
@@ -1348,7 +1457,7 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
                                                                 .calendarSelectedDay
                                                                 ?.start,
                                                             _model
-                                                                .tempoManhaValue),
+                                                                .tempoManhaValue2),
                                                     appointmentRepeat:
                                                         _model.switchValue,
                                                     appointmentProcessed: false,
@@ -1362,10 +1471,8 @@ class _AgendamentoWidgetState extends State<AgendamentoWidget>
                                                     presenca: 'Teve Aula?',
                                                     uniqueCombinations:
                                                         '${widget.alunoFromTicket?.assignee2?.id}${_model.userRefSelected1?.reference.id}',
-                                                    recurrenceRule: _model
-                                                            .week2xValue!
-                                                        ? 'FREQ=WEELY;INTERVAL=14'
-                                                        : 'FREQ=WEELY;INTERVAL=7',
+                                                    recurrenceRule:
+                                                        'FREQ=WEEKLY;INTERVAL=1;BYDAY=${_model.tempoManhaValue1}',
                                                   ),
                                                   ...mapToFirestore(
                                                     {
