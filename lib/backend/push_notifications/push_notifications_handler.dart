@@ -180,6 +180,7 @@ final parametersBuilderMap =
   'Solicitar_TicketListAdmin': ParameterData.none(),
   'chat_mainAdmin': ParameterData.none(),
   'LocalizacaoLista': ParameterData.none(),
+  'MinhaAgendaAdminCopy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

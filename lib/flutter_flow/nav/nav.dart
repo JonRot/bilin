@@ -313,6 +313,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: 'LocalizacaoLista',
           path: '/localizacaoLista',
           builder: (context, params) => const LocalizacaoListaWidget(),
+        ),
+        FFRoute(
+          name: 'MinhaAgendaAdminCopy',
+          path: '/minhaAgendaAdminCopy',
+          builder: (context, params) => const MinhaAgendaAdminCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

@@ -59,3 +59,5 @@ export '/pages/aa_nav_pages/chat_main_admin/chat_main_admin_widget.dart'
     show ChatMainAdminWidget;
 export '/pages/perfil_login_criar/localizacao_lista/localizacao_lista_widget.dart'
     show LocalizacaoListaWidget;
+export '/pages/aa_nav_pages/agenda/minha_agenda_admin_copy/minha_agenda_admin_copy_widget.dart'
+    show MinhaAgendaAdminCopyWidget;

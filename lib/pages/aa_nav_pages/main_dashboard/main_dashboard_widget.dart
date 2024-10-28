@@ -2585,7 +2585,7 @@ class _MainDashboardWidgetState extends State<MainDashboardWidget>
                                                   .primaryText,
                                           unselectedLabelColor:
                                               FlutterFlowTheme.of(context)
-                                                  .secondaryText,
+                                                  .primaryText,
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .primary,
@@ -3305,7 +3305,7 @@ class _MainDashboardWidgetState extends State<MainDashboardWidget>
                                             .primary,
                                         unselectedLabelColor:
                                             FlutterFlowTheme.of(context)
-                                                .secondaryText,
+                                                .primary,
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -4652,6 +4652,121 @@ class _MainDashboardWidgetState extends State<MainDashboardWidget>
                                                             ),
                                                           ),
                                                         ],
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                -1.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Proxíma Aula:',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                -1.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: StreamBuilder<
+                                                              List<
+                                                                  AppointmentsRecord>>(
+                                                            stream:
+                                                                queryAppointmentsRecord(
+                                                              queryBuilder:
+                                                                  (appointmentsRecord) =>
+                                                                      appointmentsRecord
+                                                                          .where(
+                                                                'appointmentAlunoID',
+                                                                isEqualTo:
+                                                                    listViewAlunoRecord
+                                                                        .reference,
+                                                              ),
+                                                              singleRecord:
+                                                                  true,
+                                                            ),
+                                                            builder: (context,
+                                                                snapshot) {
+                                                              // Customize what your widget looks like when it's loading.
+                                                              if (!snapshot
+                                                                  .hasData) {
+                                                                return const Center(
+                                                                  child:
+                                                                      SizedBox(
+                                                                    width: 30.0,
+                                                                    height:
+                                                                        30.0,
+                                                                    child:
+                                                                        SpinKitPulse(
+                                                                      color: Color(
+                                                                          0x6C57636C),
+                                                                      size:
+                                                                          30.0,
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              }
+                                                              List<AppointmentsRecord>
+                                                                  textAppointmentsRecordList =
+                                                                  snapshot
+                                                                      .data!;
+                                                              // Return an empty Container when the item does not exist.
+                                                              if (snapshot.data!
+                                                                  .isEmpty) {
+                                                                return Container();
+                                                              }
+                                                              final textAppointmentsRecord =
+                                                                  textAppointmentsRecordList
+                                                                          .isNotEmpty
+                                                                      ? textAppointmentsRecordList
+                                                                          .first
+                                                                      : null;
+
+                                                              return Text(
+                                                                dateTimeFormat(
+                                                                  "EEEE, h:mm",
+                                                                  textAppointmentsRecord!
+                                                                      .appointmentDate!,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
                                                       ),
                                                     ],
                                                   ),

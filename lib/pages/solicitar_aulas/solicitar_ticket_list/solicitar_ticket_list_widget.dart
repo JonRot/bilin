@@ -362,7 +362,9 @@ class _SolicitarTicketListWidgetState extends State<SolicitarTicketListWidget> {
                                                                       listViewSupportTicketsRecord
                                                                           .description
                                                                           .maybeHandleOverflow(
-                                                                              maxChars: 140),
+                                                                        maxChars:
+                                                                            140,
+                                                                      ),
                                                                       maxLines:
                                                                           3,
                                                                       minFontSize:

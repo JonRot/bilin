@@ -409,7 +409,9 @@ class _SolicitarTicketListAdminWidgetState
                                                                                   mainAxisAlignment: MainAxisAlignment.start,
                                                                                   children: [
                                                                                     AutoSizeText(
-                                                                                      listViewSupportTicketsRecord.description.maybeHandleOverflow(maxChars: 140),
+                                                                                      listViewSupportTicketsRecord.description.maybeHandleOverflow(
+                                                                                        maxChars: 140,
+                                                                                      ),
                                                                                       maxLines: 3,
                                                                                       minFontSize: 12.0,
                                                                                       style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -757,7 +759,9 @@ class _SolicitarTicketListAdminWidgetState
                                                                                   mainAxisAlignment: MainAxisAlignment.start,
                                                                                   children: [
                                                                                     AutoSizeText(
-                                                                                      listViewSupportTicketsRecord.description.maybeHandleOverflow(maxChars: 140),
+                                                                                      listViewSupportTicketsRecord.description.maybeHandleOverflow(
+                                                                                        maxChars: 140,
+                                                                                      ),
                                                                                       maxLines: 3,
                                                                                       minFontSize: 12.0,
                                                                                       style: FlutterFlowTheme.of(context).labelMedium.override(

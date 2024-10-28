@@ -467,8 +467,8 @@ class _ChatListDoneWidgetState extends State<ChatListDoneWidget> {
                                                                       .displayName,
                                                                   'A',
                                                                 ).maybeHandleOverflow(
-                                                                    maxChars:
-                                                                        1),
+                                                                  maxChars: 1,
+                                                                ),
                                                                 textAlign:
                                                                     TextAlign
                                                                         .center,
@@ -564,7 +564,8 @@ class _ChatListDoneWidgetState extends State<ChatListDoneWidget> {
                                                                     .displayName,
                                                                 'A',
                                                               ).maybeHandleOverflow(
-                                                                  maxChars: 1),
+                                                                maxChars: 1,
+                                                              ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
