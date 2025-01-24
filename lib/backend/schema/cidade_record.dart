@@ -45,11 +45,6 @@ class CidadeRecord extends FirestoreRecord {
   String get enderecoCompleto => _enderecoCompleto ?? '';
   bool hasEnderecoCompleto() => _enderecoCompleto != null;
 
-  // "Complemento" field.
-  String? _complemento;
-  String get complemento => _complemento ?? '';
-  bool hasComplemento() => _complemento != null;
-
   // "userRefCidade" field.
   DocumentReference? _userRefCidade;
   DocumentReference? get userRefCidade => _userRefCidade;
@@ -87,7 +82,6 @@ class CidadeRecord extends FirestoreRecord {
     _latLong = snapshotData['latLong'] as LatLng?;
     _nomeRua = snapshotData['nomeRua'] as String?;
     _enderecoCompleto = snapshotData['enderecoCompleto'] as String?;
-    _complemento = snapshotData['Complemento'] as String?;
     _userRefCidade = snapshotData['userRefCidade'] as DocumentReference?;
     _titulo = snapshotData['titulo'] as String?;
     _isDefault = snapshotData['isDefault'] as bool?;
@@ -136,7 +130,6 @@ Map<String, dynamic> createCidadeRecordData({
   LatLng? latLong,
   String? nomeRua,
   String? enderecoCompleto,
-  String? complemento,
   DocumentReference? userRefCidade,
   String? titulo,
   bool? isDefault,
@@ -152,7 +145,6 @@ Map<String, dynamic> createCidadeRecordData({
       'latLong': latLong,
       'nomeRua': nomeRua,
       'enderecoCompleto': enderecoCompleto,
-      'Complemento': complemento,
       'userRefCidade': userRefCidade,
       'titulo': titulo,
       'isDefault': isDefault,
@@ -176,7 +168,6 @@ class CidadeRecordDocumentEquality implements Equality<CidadeRecord> {
         e1?.latLong == e2?.latLong &&
         e1?.nomeRua == e2?.nomeRua &&
         e1?.enderecoCompleto == e2?.enderecoCompleto &&
-        e1?.complemento == e2?.complemento &&
         e1?.userRefCidade == e2?.userRefCidade &&
         e1?.titulo == e2?.titulo &&
         e1?.isDefault == e2?.isDefault &&
@@ -193,7 +184,6 @@ class CidadeRecordDocumentEquality implements Equality<CidadeRecord> {
         e?.latLong,
         e?.nomeRua,
         e?.enderecoCompleto,
-        e?.complemento,
         e?.userRefCidade,
         e?.titulo,
         e?.isDefault,

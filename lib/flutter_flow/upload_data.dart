@@ -230,8 +230,10 @@ bool validateFileFormat(String filePath, BuildContext context) {
   }
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
-    ..showSnackBar(const SnackBar(
-      content: Text('Formato de arquivo inválido.'),
+    ..showSnackBar(SnackBar(
+      content: Text(FFLocalizations.of(context).getText(
+        's2r2lgcm' /* Formato de arquivo inválido. */,
+      )),
     ));
   return false;
 }

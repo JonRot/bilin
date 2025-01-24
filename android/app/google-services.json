@@ -12,7 +12,20 @@
           "package_name": "com.ensinobilin.ensinobilingue"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "743693361963-4607ummn46mdp212eru8kaf9u5ascl7g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ensinobilin.ensinobilingue",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "743693361963-g94p47gbbln3s56gqrl2d79p62kq9rfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBBRyUsxuaL1LoaTbImvXBxd0HDQpJrOkI"
@@ -20,26 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:743693361963:android:7bd80a88c3272829281b6e",
-        "android_client_info": {
-          "package_name": "com.ensinobilin.ensinobilingueapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBBRyUsxuaL1LoaTbImvXBxd0HDQpJrOkI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743693361963-g94p47gbbln3s56gqrl2d79p62kq9rfo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "743693361963-0t59c9m8qhom9opfsid8ls9b98s73hv6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ensinobilin.ensinobilingue"
+              }
+            }
+          ]
         }
       }
     }

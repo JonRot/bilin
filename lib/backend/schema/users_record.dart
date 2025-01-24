@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
@@ -62,20 +61,61 @@ class UsersRecord extends FirestoreRecord {
   Role? get role => _role;
   bool hasRole() => _role != null;
 
-  // "title" field.
-  String? _title;
-  String get title => _title ?? '';
-  bool hasTitle() => _title != null;
-
   // "activeNav" field.
   bool? _activeNav;
   bool get activeNav => _activeNav ?? false;
   bool hasActiveNav() => _activeNav != null;
 
-  // "cidadeRef" field.
-  List<DocumentReference>? _cidadeRef;
-  List<DocumentReference> get cidadeRef => _cidadeRef ?? const [];
-  bool hasCidadeRef() => _cidadeRef != null;
+  // "display_last_name" field.
+  String? _displayLastName;
+  String get displayLastName => _displayLastName ?? '';
+  bool hasDisplayLastName() => _displayLastName != null;
+
+  // "cpf" field.
+  String? _cpf;
+  String get cpf => _cpf ?? '';
+  bool hasCpf() => _cpf != null;
+
+  // "UserCompleted" field.
+  bool? _userCompleted;
+  bool get userCompleted => _userCompleted ?? false;
+  bool hasUserCompleted() => _userCompleted != null;
+
+  // "userRefClasses" field.
+  DocumentReference? _userRefClasses;
+  DocumentReference? get userRefClasses => _userRefClasses;
+  bool hasUserRefClasses() => _userRefClasses != null;
+
+  // "userRefLocation" field.
+  List<DocumentReference>? _userRefLocation;
+  List<DocumentReference> get userRefLocation => _userRefLocation ?? const [];
+  bool hasUserRefLocation() => _userRefLocation != null;
+
+  // "userRefStudent" field.
+  List<DocumentReference>? _userRefStudent;
+  List<DocumentReference> get userRefStudent => _userRefStudent ?? const [];
+  bool hasUserRefStudent() => _userRefStudent != null;
+
+  // "userRefRequestAvailability" field.
+  DocumentReference? _userRefRequestAvailability;
+  DocumentReference? get userRefRequestAvailability =>
+      _userRefRequestAvailability;
+  bool hasUserRefRequestAvailability() => _userRefRequestAvailability != null;
+
+  // "userRefClassRequester" field.
+  DocumentReference? _userRefClassRequester;
+  DocumentReference? get userRefClassRequester => _userRefClassRequester;
+  bool hasUserRefClassRequester() => _userRefClassRequester != null;
+
+  // "userDefaultLocation" field.
+  String? _userDefaultLocation;
+  String get userDefaultLocation => _userDefaultLocation ?? '';
+  bool hasUserDefaultLocation() => _userDefaultLocation != null;
+
+  // "userRefBookings" field.
+  List<DocumentReference>? _userRefBookings;
+  List<DocumentReference> get userRefBookings => _userRefBookings ?? const [];
+  bool hasUserRefBookings() => _userRefBookings != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -86,10 +126,22 @@ class UsersRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _shortDescription = snapshotData['shortDescription'] as String?;
     _lastActiveTime = snapshotData['last_active_time'] as DateTime?;
-    _role = deserializeEnum<Role>(snapshotData['role']);
-    _title = snapshotData['title'] as String?;
+    _role = snapshotData['role'] is Role
+        ? snapshotData['role']
+        : deserializeEnum<Role>(snapshotData['role']);
     _activeNav = snapshotData['activeNav'] as bool?;
-    _cidadeRef = getDataList(snapshotData['cidadeRef']);
+    _displayLastName = snapshotData['display_last_name'] as String?;
+    _cpf = snapshotData['cpf'] as String?;
+    _userCompleted = snapshotData['UserCompleted'] as bool?;
+    _userRefClasses = snapshotData['userRefClasses'] as DocumentReference?;
+    _userRefLocation = getDataList(snapshotData['userRefLocation']);
+    _userRefStudent = getDataList(snapshotData['userRefStudent']);
+    _userRefRequestAvailability =
+        snapshotData['userRefRequestAvailability'] as DocumentReference?;
+    _userRefClassRequester =
+        snapshotData['userRefClassRequester'] as DocumentReference?;
+    _userDefaultLocation = snapshotData['userDefaultLocation'] as String?;
+    _userRefBookings = getDataList(snapshotData['userRefBookings']);
   }
 
   static CollectionReference get collection =>
@@ -135,8 +187,14 @@ Map<String, dynamic> createUsersRecordData({
   String? shortDescription,
   DateTime? lastActiveTime,
   Role? role,
-  String? title,
   bool? activeNav,
+  String? displayLastName,
+  String? cpf,
+  bool? userCompleted,
+  DocumentReference? userRefClasses,
+  DocumentReference? userRefRequestAvailability,
+  DocumentReference? userRefClassRequester,
+  String? userDefaultLocation,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -149,8 +207,14 @@ Map<String, dynamic> createUsersRecordData({
       'shortDescription': shortDescription,
       'last_active_time': lastActiveTime,
       'role': role,
-      'title': title,
       'activeNav': activeNav,
+      'display_last_name': displayLastName,
+      'cpf': cpf,
+      'UserCompleted': userCompleted,
+      'userRefClasses': userRefClasses,
+      'userRefRequestAvailability': userRefRequestAvailability,
+      'userRefClassRequester': userRefClassRequester,
+      'userDefaultLocation': userDefaultLocation,
     }.withoutNulls,
   );
 
@@ -172,9 +236,17 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.shortDescription == e2?.shortDescription &&
         e1?.lastActiveTime == e2?.lastActiveTime &&
         e1?.role == e2?.role &&
-        e1?.title == e2?.title &&
         e1?.activeNav == e2?.activeNav &&
-        listEquality.equals(e1?.cidadeRef, e2?.cidadeRef);
+        e1?.displayLastName == e2?.displayLastName &&
+        e1?.cpf == e2?.cpf &&
+        e1?.userCompleted == e2?.userCompleted &&
+        e1?.userRefClasses == e2?.userRefClasses &&
+        listEquality.equals(e1?.userRefLocation, e2?.userRefLocation) &&
+        listEquality.equals(e1?.userRefStudent, e2?.userRefStudent) &&
+        e1?.userRefRequestAvailability == e2?.userRefRequestAvailability &&
+        e1?.userRefClassRequester == e2?.userRefClassRequester &&
+        e1?.userDefaultLocation == e2?.userDefaultLocation &&
+        listEquality.equals(e1?.userRefBookings, e2?.userRefBookings);
   }
 
   @override
@@ -188,9 +260,17 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.shortDescription,
         e?.lastActiveTime,
         e?.role,
-        e?.title,
         e?.activeNav,
-        e?.cidadeRef
+        e?.displayLastName,
+        e?.cpf,
+        e?.userCompleted,
+        e?.userRefClasses,
+        e?.userRefLocation,
+        e?.userRefStudent,
+        e?.userRefRequestAvailability,
+        e?.userRefClassRequester,
+        e?.userDefaultLocation,
+        e?.userRefBookings
       ]);
 
   @override

@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'serialization_util.dart';
-import '../backend.dart';
+import '/backend/backend.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -74,11 +73,12 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   Widget build(BuildContext context) => _loading
       ? const Center(
           child: SizedBox(
-            width: 30.0,
-            height: 30.0,
-            child: SpinKitPulse(
-              color: Color(0x6C57636C),
-              size: 30.0,
+            width: 25.0,
+            height: 25.0,
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                Color(0x6C57636C),
+              ),
             ),
           ),
         )
@@ -109,7 +109,6 @@ final parametersBuilderMap =
   'auth_Create': ParameterData.none(),
   'auth_Login': ParameterData.none(),
   'auth_ForgotPassword': ParameterData.none(),
-  'auth_CreatePerfil': ParameterData.none(),
   'auth_Perfil': ParameterData.none(),
   'auth_EditPerfil': ParameterData.none(),
   'auth_Welcome': ParameterData.none(),
@@ -133,54 +132,60 @@ final parametersBuilderMap =
               data, 'chatMessage', ChatMessagesRecord.fromSnapshot),
         },
       ),
-  'AgendamentoDetalhes': (data) async => ParameterData(
-        allParams: {
-          'appointmentDetails':
-              getParameter<DocumentReference>(data, 'appointmentDetails'),
-          'teacherDetails':
-              getParameter<DocumentReference>(data, 'teacherDetails'),
-        },
-      ),
-  'AgendamentoDetalhesPerfil': (data) async => ParameterData(
-        allParams: {
-          'appointmentDetails':
-              getParameter<DocumentReference>(data, 'appointmentDetails'),
-        },
-      ),
   'PerfilAlunoBilinCriar': ParameterData.none(),
-  'CancelamentoAulas': ParameterData.none(),
-  'CalendarioOld': ParameterData.none(),
-  'MinhaAgendaPais': ParameterData.none(),
-  'PerfilAlunoBilin': (data) async => ParameterData(
+  'SolicitarBookingAdmin': (data) async => ParameterData(
         allParams: {
-          'userProfile': await getDocumentParameter<AlunoRecord>(
-              data, 'userProfile', AlunoRecord.fromSnapshot),
+          'num': getParameter<int>(data, 'num'),
         },
       ),
-  'postFeed': ParameterData.none(),
-  'WeekdaySelect': ParameterData.none(),
-  'PerfilAlunoBilinEditar': (data) async => ParameterData(
-        allParams: {
-          'editarPerfilBilin': await getDocumentParameter<AlunoRecord>(
-              data, 'editarPerfilBilin', AlunoRecord.fromSnapshot),
-        },
-      ),
-  'Solicitar_TicketList': ParameterData.none(),
-  'Solicitar_SubmitTicket': ParameterData.none(),
-  'Solicitar_TicketDetails': (data) async => ParameterData(
-        allParams: {
-          'ticketRef': await getDocumentParameter<SupportTicketsRecord>(
-              data, 'ticketRef', SupportTicketsRecord.fromSnapshot),
-          'priorityDetails': await getDocumentParameter<SupportTicketsRecord>(
-              data, 'priorityDetails', SupportTicketsRecord.fromSnapshot),
-        },
-      ),
-  'MinhaAgendaTeacher': ParameterData.none(),
-  'MinhaAgendaAdmin': ParameterData.none(),
-  'Solicitar_TicketListAdmin': ParameterData.none(),
   'chat_mainAdmin': ParameterData.none(),
   'LocalizacaoLista': ParameterData.none(),
-  'MinhaAgendaAdminCopy': ParameterData.none(),
+  'AvailabilityListRequest': (data) async => ParameterData(
+        allParams: {
+          'num': getParameter<int>(data, 'num'),
+        },
+      ),
+  'AvailableEditCopy': ParameterData.none(),
+  'AvailableEdit': ParameterData.none(),
+  'AvailableEditAdmin': (data) async => ParameterData(
+        allParams: {
+          'availabilityDoc':
+              await getDocumentParameter<RequestAvailabilityRecord>(data,
+                  'availabilityDoc', RequestAvailabilityRecord.fromSnapshot),
+        },
+      ),
+  'AvailableEditCopy2': ParameterData.none(),
+  'PerfilAlunoBilin': (data) async => ParameterData(
+        allParams: {
+          'studentParaDocument': await getDocumentParameter<StudentRecord>(
+              data, 'studentParaDocument', StudentRecord.fromSnapshot),
+          'bookingDoc': await getDocumentParameter<BookingsRecord>(
+              data, 'bookingDoc', BookingsRecord.fromSnapshot),
+        },
+      ),
+  'RegistroAulas': (data) async => const ParameterData(
+        allParams: {},
+      ),
+  'RegistroAulasDetails': (data) async => ParameterData(
+        allParams: {
+          'bookingDoc': await getDocumentParameter<BookingsRecord>(
+              data, 'bookingDoc', BookingsRecord.fromSnapshot),
+          'studentDoc': await getDocumentParameter<StudentRecord>(
+              data, 'studentDoc', StudentRecord.fromSnapshot),
+          'presentNum': getParameter<int>(data, 'presentNum'),
+          'absentNum': getParameter<int>(data, 'absentNum'),
+          'exclusionNum': getParameter<int>(data, 'exclusionNum'),
+        },
+      ),
+  'PerfilAlunoBilinEdit': (data) async => ParameterData(
+        allParams: {
+          'studentDocRef': await getDocumentParameter<StudentRecord>(
+              data, 'studentDocRef', StudentRecord.fromSnapshot),
+        },
+      ),
+  'notificationPermision': ParameterData.none(),
+  'notificationList': ParameterData.none(),
+  'NotificationForm': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

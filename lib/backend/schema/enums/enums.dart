@@ -1,11 +1,24 @@
 import 'package:collection/collection.dart';
 
 enum Role {
-  Pais,
-  Aluno,
+  Student,
+  Parent,
   Teacher,
   Admin,
   SuperAdmin,
+}
+
+enum Status {
+  Aprovado,
+  EmAnalise,
+  Rejeitado,
+  Criar,
+}
+
+enum Attendance {
+  Present,
+  Absent,
+  Excused,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {
@@ -21,6 +34,10 @@ T? deserializeEnum<T>(String? value) {
   switch (T) {
     case (Role):
       return Role.values.deserialize(value) as T?;
+    case (Status):
+      return Status.values.deserialize(value) as T?;
+    case (Attendance):
+      return Attendance.values.deserialize(value) as T?;
     default:
       return null;
   }

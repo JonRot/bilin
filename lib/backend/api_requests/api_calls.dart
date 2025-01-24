@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,13 +9,13 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class ApiBuscarCepCall {
+class LatlngAPICall {
   static Future<ApiCallResponse> call({
-    String? varcep = '',
+    String? cEPVar = '',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'apiBuscarCep',
-      apiUrl: 'https://viacep.com.br/ws/$varcep/json/',
+      callName: 'latlngAPI',
+      apiUrl: 'https://cep.awesomeapi.com.br/json/$cEPVar',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -27,29 +28,75 @@ class ApiBuscarCepCall {
     );
   }
 
-  static String? apiCep(dynamic response) => castToType<String>(getJsonField(
+  static String? ruaAPI(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.address''',
+      ));
+  static String? estadoAPI(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.state''',
+      ));
+  static String? bairroAPI(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.district''',
+      ));
+  static String? cidadeAPI(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.city''',
+      ));
+  static String? latAPI(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.lat''',
+      ));
+  static String? lngAPI(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.lng''',
+      ));
+  static String? cepAPI(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.cep''',
       ));
-  static String? apiRua(dynamic response) => castToType<String>(getJsonField(
+}
+
+class DistanceAPICall {
+  static Future<ApiCallResponse> call({
+    String? local1 = '',
+    String? local2 = '',
+    String? mode = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'distanceAPI',
+      apiUrl:
+          'https://maps.googleapis.com/maps/api/distancematrix/json?origins=$local1&destinations=$local2&mode=$mode&key=AIzaSyAiz6K04zInyBbdk9aEJjzpNnpcwqqOyfk',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'local1': local1,
+        'local2': local2,
+        'mode': mode,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? kmDistance(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
-        r'''$.logradouro''',
+        r'''$.rows[:].elements[:].distance.text''',
       ));
-  static String? apiBairro(dynamic response) => castToType<String>(getJsonField(
+  static String? timeDistance(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
-        r'''$.bairro''',
+        r'''$.rows[:].elements[:].duration.text''',
       ));
-  static String? apiCidade(dynamic response) => castToType<String>(getJsonField(
+  static int? timeDistanceSec(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$.localidade''',
-      ));
-  static String? apiUf(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.uf''',
-      ));
-  static String? apiNumero(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.complemento''',
+        r'''$.rows[:].elements[:].duration.value''',
       ));
 }
 

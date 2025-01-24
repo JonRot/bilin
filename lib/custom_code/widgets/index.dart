@@ -1,1 +1,1 @@
-export 'recurrence_calendar.dart' show RecurrenceCalendar;
+export 'custom_calendar.dart' show CustomCalendar;

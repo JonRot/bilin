@@ -1,0 +1,7 @@
+NSCameraUsageDescription = "Allow access to the camera to take photos or videos.";
+NSPhotoLibraryUsageDescription = "Allow access to your photo library to upload images.";
+NSMicrophoneUsageDescription = "In order to record audio for video, this app requires permission to access the microphone.";
+NSFaceIDUsageDescription = "Use biometrics to protect your account.";
+NSCalendarsUsageDescription = "Allow calendar access to schedule events.";
+PermissionGroupNotification = "Receive important notifications from this app.";
+NSLocationWhenInUseUsageDescription = "Allow to use your location.";

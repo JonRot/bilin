@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -36,11 +35,23 @@ class NotificationsRecord extends FirestoreRecord {
   DocumentReference? get messageID => _messageID;
   bool hasMessageID() => _messageID != null;
 
+  // "senderRef" field.
+  DocumentReference? _senderRef;
+  DocumentReference? get senderRef => _senderRef;
+  bool hasSenderRef() => _senderRef != null;
+
+  // "chatRef" field.
+  DocumentReference? _chatRef;
+  DocumentReference? get chatRef => _chatRef;
+  bool hasChatRef() => _chatRef != null;
+
   void _initializeFields() {
     _detectedKeywords = getDataList(snapshotData['detectedKeywords']);
     _messageText = snapshotData['messageText'] as String?;
     _timestamp = snapshotData['timestamp'] as DateTime?;
     _messageID = snapshotData['messageID'] as DocumentReference?;
+    _senderRef = snapshotData['senderRef'] as DocumentReference?;
+    _chatRef = snapshotData['chatRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -81,12 +92,16 @@ Map<String, dynamic> createNotificationsRecordData({
   String? messageText,
   DateTime? timestamp,
   DocumentReference? messageID,
+  DocumentReference? senderRef,
+  DocumentReference? chatRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'messageText': messageText,
       'timestamp': timestamp,
       'messageID': messageID,
+      'senderRef': senderRef,
+      'chatRef': chatRef,
     }.withoutNulls,
   );
 
@@ -103,12 +118,20 @@ class NotificationsRecordDocumentEquality
     return listEquality.equals(e1?.detectedKeywords, e2?.detectedKeywords) &&
         e1?.messageText == e2?.messageText &&
         e1?.timestamp == e2?.timestamp &&
-        e1?.messageID == e2?.messageID;
+        e1?.messageID == e2?.messageID &&
+        e1?.senderRef == e2?.senderRef &&
+        e1?.chatRef == e2?.chatRef;
   }
 
   @override
-  int hash(NotificationsRecord? e) => const ListEquality()
-      .hash([e?.detectedKeywords, e?.messageText, e?.timestamp, e?.messageID]);
+  int hash(NotificationsRecord? e) => const ListEquality().hash([
+        e?.detectedKeywords,
+        e?.messageText,
+        e?.timestamp,
+        e?.messageID,
+        e?.senderRef,
+        e?.chatRef
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is NotificationsRecord;

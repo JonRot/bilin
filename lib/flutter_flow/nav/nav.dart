@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -17,6 +15,8 @@ export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
+
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
@@ -76,6 +76,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? entryPage ?? const MainDashboardWidget()
           : const AuthWelcomeWidget(),
@@ -101,11 +102,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: 'auth_ForgotPassword',
           path: '/authForgotPassword',
           builder: (context, params) => const AuthForgotPasswordWidget(),
-        ),
-        FFRoute(
-          name: 'auth_CreatePerfil',
-          path: '/authCreatePerfil',
-          builder: (context, params) => const AuthCreatePerfilWidget(),
         ),
         FFRoute(
           name: 'auth_Perfil',
@@ -173,136 +169,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: 'AgendamentoDetalhes',
-          path: '/agendamentoDetalhes',
-          builder: (context, params) => AgendamentoDetalhesWidget(
-            appointmentDetails: params.getParam(
-              'appointmentDetails',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['appointments'],
-            ),
-            teacherDetails: params.getParam(
-              'teacherDetails',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'AgendamentoDetalhesPerfil',
-          path: '/agendamentoDetalhesPerfil',
-          builder: (context, params) => AgendamentoDetalhesPerfilWidget(
-            appointmentDetails: params.getParam(
-              'appointmentDetails',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['appointments'],
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'PerfilAlunoBilinCriar',
           path: '/perfilAlunoBilinCriar',
           builder: (context, params) => const PerfilAlunoBilinCriarWidget(),
         ),
         FFRoute(
-          name: 'CancelamentoAulas',
-          path: '/cancelamentoAulas',
-          builder: (context, params) => const CancelamentoAulasWidget(),
-        ),
-        FFRoute(
-          name: 'CalendarioOld',
-          path: '/calendarioOld',
-          builder: (context, params) => const CalendarioOldWidget(),
-        ),
-        FFRoute(
-          name: 'MinhaAgendaPais',
-          path: '/minhaAgendaPais',
-          builder: (context, params) => const MinhaAgendaPaisWidget(),
-        ),
-        FFRoute(
-          name: 'PerfilAlunoBilin',
-          path: '/perfilAlunoBilin',
+          name: 'SolicitarBookingAdmin',
+          path: '/solicitarBookingAdmin',
           asyncParams: {
-            'userProfile': getDoc(['users', 'aluno'], AlunoRecord.fromSnapshot),
+            'bookingDocList':
+                getDocList(['bookings'], BookingsRecord.fromSnapshot),
           },
-          builder: (context, params) => PerfilAlunoBilinWidget(
-            userProfile: params.getParam(
-              'userProfile',
+          builder: (context, params) => SolicitarBookingAdminWidget(
+            bookingDocList: params.getParam<BookingsRecord>(
+              'bookingDocList',
               ParamType.Document,
+              isList: true,
+            ),
+            num: params.getParam(
+              'num',
+              ParamType.int,
             ),
           ),
-        ),
-        FFRoute(
-          name: 'postFeed',
-          path: '/postFeed',
-          builder: (context, params) => const PostFeedWidget(),
-        ),
-        FFRoute(
-          name: 'WeekdaySelect',
-          path: '/weekdaySelect',
-          builder: (context, params) => const WeekdaySelectWidget(),
-        ),
-        FFRoute(
-          name: 'PerfilAlunoBilinEditar',
-          path: '/perfilAlunoBilinEditar',
-          asyncParams: {
-            'editarPerfilBilin':
-                getDoc(['users', 'aluno'], AlunoRecord.fromSnapshot),
-          },
-          builder: (context, params) => PerfilAlunoBilinEditarWidget(
-            editarPerfilBilin: params.getParam(
-              'editarPerfilBilin',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'Solicitar_TicketList',
-          path: '/solicitarTicketList',
-          builder: (context, params) => const SolicitarTicketListWidget(),
-        ),
-        FFRoute(
-          name: 'Solicitar_SubmitTicket',
-          path: '/solicitarSubmitTicket',
-          builder: (context, params) => const SolicitarSubmitTicketWidget(),
-        ),
-        FFRoute(
-          name: 'Solicitar_TicketDetails',
-          path: '/solicitarTicketDetails',
-          asyncParams: {
-            'ticketRef':
-                getDoc(['supportTickets'], SupportTicketsRecord.fromSnapshot),
-            'priorityDetails':
-                getDoc(['supportTickets'], SupportTicketsRecord.fromSnapshot),
-          },
-          builder: (context, params) => SolicitarTicketDetailsWidget(
-            ticketRef: params.getParam(
-              'ticketRef',
-              ParamType.Document,
-            ),
-            priorityDetails: params.getParam(
-              'priorityDetails',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'MinhaAgendaTeacher',
-          path: '/minhaAgendaTeacher',
-          builder: (context, params) => const MinhaAgendaTeacherWidget(),
-        ),
-        FFRoute(
-          name: 'MinhaAgendaAdmin',
-          path: '/minhaAgendaAdmin',
-          builder: (context, params) => const MinhaAgendaAdminWidget(),
-        ),
-        FFRoute(
-          name: 'Solicitar_TicketListAdmin',
-          path: '/solicitarTicketListAdmin',
-          builder: (context, params) => const SolicitarTicketListAdminWidget(),
         ),
         FFRoute(
           name: 'chat_mainAdmin',
@@ -315,9 +203,135 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => const LocalizacaoListaWidget(),
         ),
         FFRoute(
-          name: 'MinhaAgendaAdminCopy',
-          path: '/minhaAgendaAdminCopy',
-          builder: (context, params) => const MinhaAgendaAdminCopyWidget(),
+          name: 'AvailabilityListRequest',
+          path: '/availabilityListRequest',
+          builder: (context, params) => AvailabilityListRequestWidget(
+            num: params.getParam(
+              'num',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AvailableEditCopy',
+          path: '/availableEditCopy',
+          builder: (context, params) => const AvailableEditCopyWidget(),
+        ),
+        FFRoute(
+          name: 'AvailableEdit',
+          path: '/availableEdit',
+          builder: (context, params) => const AvailableEditWidget(),
+        ),
+        FFRoute(
+          name: 'AvailableEditAdmin',
+          path: '/availableEditAdmin',
+          asyncParams: {
+            'availabilityDoc': getDoc(['RequestAvailability'],
+                RequestAvailabilityRecord.fromSnapshot),
+          },
+          builder: (context, params) => AvailableEditAdminWidget(
+            availabilityDoc: params.getParam(
+              'availabilityDoc',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'AvailableEditCopy2',
+          path: '/availableEditCopy2',
+          builder: (context, params) => const AvailableEditCopy2Widget(),
+        ),
+        FFRoute(
+          name: 'PerfilAlunoBilin',
+          path: '/perfilAlunoBilin',
+          asyncParams: {
+            'studentParaDocument':
+                getDoc(['student'], StudentRecord.fromSnapshot),
+            'bookingDoc': getDoc(['bookings'], BookingsRecord.fromSnapshot),
+          },
+          builder: (context, params) => PerfilAlunoBilinWidget(
+            studentParaDocument: params.getParam(
+              'studentParaDocument',
+              ParamType.Document,
+            ),
+            bookingDoc: params.getParam(
+              'bookingDoc',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'RegistroAulas',
+          path: '/registroAulas',
+          asyncParams: {
+            'bookingDocList':
+                getDocList(['bookings'], BookingsRecord.fromSnapshot),
+          },
+          builder: (context, params) => RegistroAulasWidget(
+            bookingDocList: params.getParam<BookingsRecord>(
+              'bookingDocList',
+              ParamType.Document,
+              isList: true,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'RegistroAulasDetails',
+          path: '/registroAulasDetails',
+          asyncParams: {
+            'bookingDoc': getDoc(['bookings'], BookingsRecord.fromSnapshot),
+            'studentDoc': getDoc(['student'], StudentRecord.fromSnapshot),
+          },
+          builder: (context, params) => RegistroAulasDetailsWidget(
+            bookingDoc: params.getParam(
+              'bookingDoc',
+              ParamType.Document,
+            ),
+            studentDoc: params.getParam(
+              'studentDoc',
+              ParamType.Document,
+            ),
+            presentNum: params.getParam(
+              'presentNum',
+              ParamType.int,
+            ),
+            absentNum: params.getParam(
+              'absentNum',
+              ParamType.int,
+            ),
+            exclusionNum: params.getParam(
+              'exclusionNum',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'PerfilAlunoBilinEdit',
+          path: '/perfilAlunoBilinEdit',
+          asyncParams: {
+            'studentDocRef': getDoc(['student'], StudentRecord.fromSnapshot),
+          },
+          builder: (context, params) => PerfilAlunoBilinEditWidget(
+            studentDocRef: params.getParam(
+              'studentDocRef',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'notificationPermision',
+          path: '/notificationPermision',
+          builder: (context, params) => const NotificationPermisionWidget(),
+        ),
+        FFRoute(
+          name: 'notificationList',
+          path: '/notificationList',
+          builder: (context, params) => const NotificationListWidget(),
+        ),
+        FFRoute(
+          name: 'NotificationForm',
+          path: '/notificationForm',
+          builder: (context, params) => const NotificationFormWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -438,6 +452,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -456,6 +471,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }
@@ -505,11 +521,12 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? const Center(
                   child: SizedBox(
-                    width: 30.0,
-                    height: 30.0,
-                    child: SpinKitPulse(
-                      color: Color(0x6C57636C),
-                      size: 30.0,
+                    width: 25.0,
+                    height: 25.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        Color(0x6C57636C),
+                      ),
                     ),
                   ),
                 )

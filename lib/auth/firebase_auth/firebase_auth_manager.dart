@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../auth_manager.dart';
+import '../../flutter_flow/flutter_flow_util.dart';
 
 import '/backend/backend.dart';
 import 'anonymous_auth.dart';
@@ -71,9 +72,10 @@ class FirebaseAuthManager extends AuthManager
       if (e.code == 'requires-recent-login') {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text(
-                  'Sessão expirada. Faça login novamente antes de excluir a conta.')),
+          SnackBar(
+              content: Text(FFLocalizations.of(context).getText(
+            'sg1x42l4' /* Sessão expirada. Faça login no... */,
+          ))),
         );
       }
     }
@@ -95,9 +97,34 @@ class FirebaseAuthManager extends AuthManager
       if (e.code == 'requires-recent-login') {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text(
-                  'Sessão expirada. Faça login novamente antes de atualizar o e-mail.')),
+          SnackBar(
+              content: Text(FFLocalizations.of(context).getText(
+            'dqtq53dq' /* Sessão expirada. Faça login no... */,
+          ))),
+        );
+      }
+    }
+  }
+
+  @override
+  Future updatePassword({
+    required String newPassword,
+    required BuildContext context,
+  }) async {
+    try {
+      if (!loggedIn) {
+        print('Error: update password attempted with no logged in user!');
+        return;
+      }
+      await currentUser?.updatePassword(newPassword);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+              content: Text(FFLocalizations.of(context).getText(
+            's37qxdli' /* Erro: [erro] */,
+          ))),
         );
       }
     }
@@ -113,12 +140,18 @@ class FirebaseAuthManager extends AuthManager
     } on FirebaseAuthException {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro: [erro]')),
+        SnackBar(
+            content: Text(FFLocalizations.of(context).getText(
+          's37qxdli' /* Erro: [erro] */,
+        ))),
       );
       return null;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('E-mail de redefinição enviado!')),
+      SnackBar(
+          content: Text(FFLocalizations.of(context).getText(
+        '2z816su4' /* E-mail de redefinição enviado! */,
+      ))),
     );
   }
 
@@ -183,8 +216,10 @@ class FirebaseAuthManager extends AuthManager
             .update(() => phoneAuthManager.triggerOnCodeSent = false);
       } else if (phoneAuthManager.phoneAuthError != null) {
         final e = phoneAuthManager.phoneAuthError!;
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Erro: [erro]'),
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(FFLocalizations.of(context).getText(
+            's37qxdli' /* Erro: [erro] */,
+          )),
         ));
         phoneAuthManager.update(() => phoneAuthManager.phoneAuthError = null);
       }
@@ -290,9 +325,15 @@ class FirebaseAuthManager extends AuthManager
           : EnsinoBilingueFirebaseUser.fromUserCredential(userCredential);
     } on FirebaseAuthException catch (e) {
       final errorMsg = switch (e.code) {
-        'email-already-in-use' => 'E-mail já está em uso.',
-        'INVALID_LOGIN_CREDENTIALS' => 'Credenciais inválidas ou expiradas.',
-        _ => 'Erro: [erro]',
+        'email-already-in-use' => FFLocalizations.of(context).getText(
+            'v0t492dk' /* E-mail já está em uso. */,
+          ),
+        'INVALID_LOGIN_CREDENTIALS' => FFLocalizations.of(context).getText(
+            'utw91pnf' /* Credenciais inválidas ou expir... */,
+          ),
+        _ => FFLocalizations.of(context).getText(
+            's37qxdli' /* Erro: [erro] */,
+          ),
       };
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(

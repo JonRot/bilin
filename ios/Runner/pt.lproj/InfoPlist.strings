@@ -1,0 +1,6 @@
+NSCameraUsageDescription = "Permita o acesso à câmera para tirar fotos ou vídeos.";
+NSPhotoLibraryUsageDescription = "Permita o acesso à sua biblioteca de fotos para enviar imagens.";
+NSFaceIDUsageDescription = "Use biometria para proteger sua conta.";
+NSCalendarsUsageDescription = "Permita o acesso ao calendário para agendar eventos.";
+PermissionGroupNotification = "Receba notificações importantes deste app.";
+NSLocationWhenInUseUsageDescription = "Permita usar sua localização.";
