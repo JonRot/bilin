@@ -27,8 +27,12 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 ## Antes de publicar
 
 1. **Número de WhatsApp.** Já configurado com o número do site, 5548992105010, na landing page e no e-mail. Se mudar, troque no bloco `CONFIG` no fim de `src/landing.html` e no e-mail, e rode o build de novo.
-2. **Links do e-mail e do WhatsApp.** Troque `{{LINK_LANDING}}` pelo endereço da landing page. No e-mail, suba `5-email-logo.png` na ferramenta de envio e troque `{{URL_LOGO}}` pelo endereço da imagem.
-3. **Teste no celular.** Abra a landing page, preencha o formulário e confira se a mensagem chega no WhatsApp da Bilin.
+2. **Links do e-mail e do WhatsApp.** Já apontam para https://ensinobilin.com/black-friday/. No e-mail, suba `5-email-logo.png` na ferramenta de envio e troque `{{URL_LOGO}}` pelo endereço da imagem.
+3. **Teste no celular.** Abra https://ensinobilin.com/black-friday/, preencha o formulário e confira se a mensagem chega no WhatsApp da Bilin.
+
+## Onde a landing page está publicada
+
+A página vive no repositório do site (JonRot/bilin-site), em `black-friday/index.html`, e é servida em https://ensinobilin.com/black-friday/. O arquivo em `entregaveis/2-landing-page/` é a versão avulsa, com fonte e imagens embutidas, caso precise ser hospedada em outro lugar.
 
 ## Como publicar a landing page numa aba do sistema
 
