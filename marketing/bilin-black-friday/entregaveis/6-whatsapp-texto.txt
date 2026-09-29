@@ -1,0 +1,69 @@
+================================================================
+MENSAGEM PRINCIPAL · enviar junto com a arte (individual e grupo de recados)
+Troque {{LINK_LANDING}} pelo link da landing page antes de enviar.
+================================================================
+
+🖤 *BILIN BLACK FRIDAY* 🖤
+_A Black Friday da Bilin chegou mais cedo!_
+
+Família Bilin, durante *todo o mês de outubro* suas indicações viram *aulas grátis* 🎁
+
+*Como funciona*
+✅ 5 indicações = *1 aula grátis*
+✅ 10 indicações = *2 aulas grátis*
+✅ 15 indicações = *4 aulas grátis*
+✅ 20 indicações = *6 aulas grátis*
+
+As aulas se acumulam (máximo de 6 por família). E o melhor: *seu indicado não precisa fechar matrícula para a indicação contar!*
+
+🎉 *Seus amigos também ganham:* quem você indicar e fechar matrícula entre *23/10 e 06/11* ganha *1 semana de aulas grátis*, em qualquer plano e frequência.
+
+*Como indicar*
+1️⃣ Pelo formulário: {{LINK_LANDING}}
+2️⃣ Ou mande aqui o *nome e WhatsApp* de cada família
+3️⃣ Ou peça para o seu amigo dizer _"fui indicado por [seu nome]"_
+
+*Vale como indicação*
+• Família que nunca estudou na Bilin (ou está há mais de 6 meses sem aulas)
+• Com nome e WhatsApp do responsável
+• Que ainda não foi indicada por outra família
+• Que responda ao nosso contato até 06/11. *Avise seus amigos que vamos chamar!* 😉
+
+*Datas*
+📅 01 a 31/10: indicações
+📅 23/10 a 06/11: semana grátis para os indicados
+🖤 30/10: Dia Bilin Black Friday
+📅 10/11: resultado final
+📅 A partir de 16/11: agendamento das suas aulas grátis (válidas até 30/04/2027)
+
+*Duplas e famílias*
+• Dupla de irmãos, amigos ou da mesma família: a aula grátis é da dupla e os dois aproveitam
+• Dupla com aluno de outra família sem direito: só quem tem direito usa a aula
+• 2 ou mais alunos da família em aulas individuais: cada um recebe 50% da recompensa
+
+Toda quinta a gente manda o seu placar 📊
+Regulamento completo: {{LINK_LANDING}}
+
+Bora espalhar a Bilin? 💛
+
+================================================================
+VERSÃO CURTA · para o grupo de recados, se preferir só um resumo
+================================================================
+
+🖤 *BILIN BLACK FRIDAY* 🖤
+
+Durante *todo outubro*, suas indicações viram *aulas grátis*:
+5 = 1 aula · 10 = 2 aulas · 15 = 4 aulas · 20 = 6 aulas
+
+Seu indicado *não precisa fechar* para contar. E se ele fechar entre *23/10 e 06/11*, ganha *1 semana grátis* 🎁
+
+Indique pelo link ou mande nome + WhatsApp no privado da Bilin 👇
+{{LINK_LANDING}}
+
+================================================================
+LEMBRETES SUGERIDOS
+================================================================
+
+[22/10 · grupo] 🖤 Amanhã abre a *semana grátis* da Bilin Black Friday! Quem você indicar e fechar entre 23/10 e 06/11 ganha a 1ª semana de aulas grátis. Ainda dá tempo de indicar até 31/10: {{LINK_LANDING}}
+
+[30/10 · grupo] 🖤 Hoje é o *Dia Bilin Black Friday*! Últimos dias para indicar (até amanhã, 31/10) e garantir suas aulas grátis. Seus amigos têm até 06/11 para fechar com 1 semana grátis: {{LINK_LANDING}}
