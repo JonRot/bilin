@@ -26,8 +26,8 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 
 ## Antes de publicar
 
-1. **Número de WhatsApp.** Na landing page, troque `5500000000000` pelo número da Bilin com DDI e DDD, só dígitos. Fica no bloco `CONFIG` no fim de `src/landing.html`. Depois rode o build de novo.
-2. **Links do e-mail e do WhatsApp.** Troque `{{LINK_LANDING}}` pelo endereço da landing page e `{{LINK_WHATSAPP}}` por `https://wa.me/<número>`. No e-mail, suba `5-email-logo.png` na ferramenta de envio e troque `{{URL_LOGO}}` pelo endereço da imagem.
+1. **Número de WhatsApp.** Já configurado com o número do site, 5548992105010, na landing page e no e-mail. Se mudar, troque no bloco `CONFIG` no fim de `src/landing.html` e no e-mail, e rode o build de novo.
+2. **Links do e-mail e do WhatsApp.** Troque `{{LINK_LANDING}}` pelo endereço da landing page. No e-mail, suba `5-email-logo.png` na ferramenta de envio e troque `{{URL_LOGO}}` pelo endereço da imagem.
 3. **Teste no celular.** Abra a landing page, preencha o formulário e confira se a mensagem chega no WhatsApp da Bilin.
 
 ## Como publicar a landing page numa aba do sistema
