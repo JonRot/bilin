@@ -1,53 +1,48 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Story indique e ganhe</title>
 <style>
-  *{box-sizing:border-box;margin:0}
-  :root{--ink:#101713;--ink-3:#223027;--sage:#8c9468;--sage-2:#b7bf98;--coral:#f09a94;--gold:#f3cd6b;--cream:#f6f1e7}
-  html,body{width:1080px;height:HPX;overflow:hidden}
-  body{background:radial-gradient(900px 700px at 80% 8%,#2b3b2f 0%,transparent 65%),radial-gradient(700px 600px at 0% 100%,#26241a 0%,transparent 60%),var(--ink);color:var(--cream);font-family:"DM Sans",sans-serif;position:relative}
-  .serif{font-family:Fraunces,Georgia,serif}
-  .arc{position:absolute;border:4px dashed rgba(140,148,104,.5);border-radius:50%}
-  .eyebrow{font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-  .pill{display:inline-flex;align-items:center;gap:14px;border-radius:999px;font-weight:700}
-
+/*@fonts*/
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--cream);color:var(--char);font-family:"Poligrapher",sans-serif;position:relative}
+body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:28px;background:var(--coral)}
+.page{position:absolute;inset:0;padding:230px 88px 250px;display:flex;flex-direction:column}
+.pills{display:flex;gap:14px}
+.pill{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:16px 28px;font-weight:700;font-size:34px;line-height:1}
+.pill img{height:36px}
+.pill.white{background:var(--white);color:var(--char)}
+.pill.dark{background:var(--char);color:var(--white)}
+.q{font-size:60px;font-weight:700;margin-top:64px;letter-spacing:-.02em}
+.q u{text-decoration-thickness:4px;text-underline-offset:10px}
+h1{font-weight:800;font-size:122px;line-height:.93;letter-spacing:-.045em;margin-top:18px}
+h1 em{font-style:normal;background:var(--coral);padding:0 16px;border-radius:24px;display:inline-block;margin-top:10px}
+.stairs{display:flex;align-items:flex-end;gap:16px;margin-top:50px;height:400px}
+.st{flex:1;border-radius:36px;padding:24px 22px;display:flex;flex-direction:column;justify-content:flex-end}
+.st:nth-child(1){height:52%;background:var(--yellow)}.st:nth-child(2){height:66%;background:var(--peach)}.st:nth-child(3){height:82%;background:var(--pink)}.st:nth-child(4){height:100%;background:var(--coral)}
+.st .n{font-size:24px;font-weight:600;white-space:nowrap}
+.st .v{font-size:96px;font-weight:800;line-height:1;letter-spacing:-.05em;margin-top:4px}
+.st .u{font-size:30px;font-weight:700}
+.note{font-size:38px;line-height:1.3;margin-top:36px;font-weight:600}
+.note b{font-weight:800}
+.bonus{margin-top:28px;margin-bottom:40px;background:var(--char);color:var(--white);border-radius:36px;padding:28px 34px;font-size:38px;line-height:1.28;font-weight:600}
+.bonus b{color:var(--yellow)}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end}
+.foot img{height:76px}
+.foot span{font-size:40px;font-weight:800}
+.casa{position:absolute;right:88px;top:212px;width:96px}
 </style></head><body>
-<style>
-  html,body{height:1920px}
-  .arc.a1{width:1300px;height:1300px;left:-110px;top:-560px}
-  .page{position:absolute;inset:0;padding:200px 90px 250px;display:flex;flex-direction:column}
-  .logo{width:150px;align-self:center;margin-bottom:56px}
-  .box{}
-  .eyebrow{font-size:34px}
-  .q{font-size:58px;font-weight:700;margin-top:26px;color:var(--sage-2)}
-  h1{font-size:112px;line-height:.98;font-weight:900;margin-top:10px;letter-spacing:-.015em}
-  h1 .c{color:var(--coral)}
-  .stairs{display:flex;align-items:flex-end;gap:16px;margin-top:40px;height:380px}
-  .st{flex:1;border-radius:28px 28px 10px 10px;background:var(--cream);color:var(--ink);padding:22px 20px;display:flex;flex-direction:column;justify-content:flex-end}
-  .st:nth-child(1){height:52%}.st:nth-child(2){height:64%}.st:nth-child(3){height:80%}.st:nth-child(4){height:100%;background:var(--coral)}
-  .st .n{font-size:30px;font-weight:500;opacity:.75}
-  .st .v{font-size:66px;font-weight:900;line-height:1}
-  .st .u{font-size:30px;font-weight:700}
-  .note{font-size:36px;line-height:1.3;margin-top:30px;color:#e6e0d3}
-  .note b{color:var(--gold)}
-  .bonus{margin-top:26px;margin-bottom:48px;border:3px dashed var(--coral);border-radius:28px;padding:26px 30px;font-size:38px;line-height:1.25}
-  .bonus b{color:var(--coral)}
-  .cta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:3px dashed rgba(140,148,104,.6);padding-top:40px;font-size:40px}
-  .cta b{color:var(--gold)}
-</style>
-<div class="arc a1"></div>
-<div class="page"><img class="logo" src="../assets/logo-escuro.png" alt="Bilin">
-<div class="box">
-  <div class="eyebrow">Bilin Black Friday · Outubro</div>
-  <div class="q serif">Já é Bilin?</div>
-  <h1 class="serif">Indique e ganhe até <span class="c">6 aulas grátis</span></h1>
+<img class="casa" src="../assets/formas/casa.png" alt="">
+<div class="page">
+  <div class="pills"><span class="pill white"><img src="../assets/icone.png" alt="">Ensino Bilin</span><span class="pill dark">Black Friday</span></div>
+  <div class="q"><u>Já é Bilin?</u></div>
+  <h1>Indique e ganhe até <em>6 aulas grátis</em></h1>
   <div class="stairs">
-    <div class="st"><span class="n">5 indicações</span><span class="v serif">1</span><span class="u">aula</span></div>
-    <div class="st"><span class="n">10 indicações</span><span class="v serif">2</span><span class="u">aulas</span></div>
-    <div class="st"><span class="n">15 indicações</span><span class="v serif">4</span><span class="u">aulas</span></div>
-    <div class="st"><span class="n">20 indicações</span><span class="v serif">6</span><span class="u">aulas</span></div>
+    <div class="st"><span class="n">5 indicações</span><span class="v">1</span><span class="u">aula</span></div>
+    <div class="st"><span class="n">10 indicações</span><span class="v">2</span><span class="u">aulas</span></div>
+    <div class="st"><span class="n">15 indicações</span><span class="v">4</span><span class="u">aulas</span></div>
+    <div class="st"><span class="n">20 indicações</span><span class="v">6</span><span class="u">aulas</span></div>
   </div>
   <p class="note">Indicações de <b>01 a 31/10</b>. Seu indicado não precisa fechar matrícula para contar.</p>
   <div class="bonus">E quem você indicar ganha <b>1 semana grátis</b> fechando de 23/10 a 06/11.</div>
-</div>
-<div class="cta"><span>Envie suas indicações</span><b>Link na bio →</b></div>
+  <div class="foot"><img src="../assets/logo.png" alt="Bilin"><span>Link na bio →</span></div>
 </div>
 </body></html>

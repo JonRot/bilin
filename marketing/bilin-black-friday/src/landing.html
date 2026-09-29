@@ -7,159 +7,161 @@
 <meta name="description" content="Bilin Black Friday: em outubro, quem já é Bilin indica e ganha até 6 aulas grátis. Quem chega agora ganha 1 semana de aulas grátis.">
 <meta property="og:title" content="Bilin Black Friday">
 <meta property="og:description" content="Indique e ganhe até 6 aulas grátis. Novos alunos ganham 1 semana grátis de 23/10 a 06/11.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#101713; --ink-2:#18231c; --ink-3:#223027;
-    --sage:#8c9468; --sage-2:#b7bf98; --coral:#f09a94; --coral-2:#e97f78;
-    --gold:#f3cd6b; --cream:#f6f1e7; --paper:#fbf8f2; --line:#e6dfd1;
-    --text:#1b231e; --muted:#5b6660;
-    --radius:18px;
-  }
+/*@fonts*/
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--text);font:400 17px/1.55 "DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  body{margin:0;background:var(--cream);color:var(--text);font:400 17px/1.55 "Poligrapher",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
   img{max-width:100%;display:block}
   a{color:inherit}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.08;margin:0;letter-spacing:-.01em}
-  h2{font-size:clamp(30px,5vw,46px);font-weight:700}
-  h3{font-size:22px;font-weight:700}
-  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:15px 26px;font:700 16px/1 "DM Sans",sans-serif;text-decoration:none;cursor:pointer;transition:transform .15s ease,background .15s ease}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;position:relative}
+  h1,h2,h3{font-family:"Poligrapher",Arial,sans-serif;line-height:1.02;margin:0;letter-spacing:-.025em}
+  h2{font-size:clamp(34px,5.4vw,54px);font-weight:800}
+  h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 16px;font-weight:600;font-size:14px;line-height:1}
+  .pill img{height:18px;width:auto}
+  .pill.white{background:var(--white);color:var(--char)}
+  .pill.coral{background:var(--coral);color:var(--char)}
+  .pill.olive{background:var(--olive);color:var(--char)}
+  .pill.yellow{background:var(--yellow);color:var(--char)}
+  .pill.line{border:1.5px solid currentColor}
+  .under{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:16px 26px;font:700 16px/1 "Poligrapher",sans-serif;text-decoration:none;cursor:pointer;transition:transform .15s ease,background .15s ease}
   .btn:hover{transform:translateY(-1px)}
-  .btn:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-  .btn-coral{background:var(--coral);color:var(--ink)}
-  .btn-coral:hover{background:var(--coral-2)}
-  .btn-sage{background:var(--sage);color:#fff}
-  .btn-ghost{background:transparent;color:var(--text);border:2px solid var(--line)}
+  .btn:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+  .btn-coral{background:var(--coral);color:var(--char)}
+  .btn-coral:hover{background:var(--coral-d)}
+  .btn-dark{background:var(--char);color:var(--white)}
+  .btn-ghost{background:transparent;color:var(--char);border:2px solid var(--char)}
   .btn svg{width:20px;height:20px;flex:none}
 
-  /* topo */
-  .topbar{position:sticky;top:0;z-index:20;background:rgba(16,23,19,.92);backdrop-filter:blur(8px);color:var(--cream)}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .brand img{height:40px;width:auto}
-  .brand span{font:700 15px/1 "DM Sans";letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-  .topbar nav{display:flex;gap:22px;font-size:15px}
+  .topbar{position:sticky;top:0;z-index:20;background:var(--char);color:var(--white)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+  .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .brand img{height:30px;width:auto}
+  .brand span{background:var(--coral);color:var(--char);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
+  .topbar nav{display:flex;gap:22px;font-size:15px;font-weight:600}
   .topbar nav a{text-decoration:none;opacity:.85}
   .topbar nav a:hover{opacity:1}
   @media (max-width:720px){.topbar nav{display:none}}
 
-  /* hero */
-  .hero{background:radial-gradient(1200px 500px at 85% -10%,#2a3a2e 0%,transparent 60%),var(--ink);color:var(--cream);padding:56px 0 72px;overflow:hidden;position:relative}
-  .hero .arc{position:absolute;right:-140px;top:40px;width:520px;height:520px;border:3px dashed rgba(140,148,104,.45);border-radius:50%;pointer-events:none}
-  @media (max-width:720px){.hero .arc{display:none}}
-  .hero .eyebrow{color:var(--gold)}
-  .hero h1{font-size:clamp(46px,9vw,96px);font-weight:900;margin:14px 0 18px}
+  .hero{background:var(--char);color:var(--white);padding:48px 0 76px;overflow:hidden;position:relative}
+  .hero .deco{position:absolute;pointer-events:none}
+  .hero .mala{right:4%;top:40px;width:210px;transform:rotate(8deg)}
+  .hero .flor{right:24%;top:24px;width:74px;opacity:.95}
+  .hero .gota{right:1%;top:330px;width:60px}
+  @media (max-width:860px){.hero .mala{width:150px;right:-20px;top:auto;bottom:-30px;opacity:.9}.hero .flor,.hero .gota{display:none}}
+  @media (max-width:760px){.hero .mala{display:none}.choice img.shape{display:none}#semana .deco{display:none}.card.dark img.shape{display:none}.card.dark h3,.card.dark p{max-width:none!important}}
+  .hero h1{font-size:clamp(52px,10vw,112px);font-weight:800;margin:6px 0 20px;max-width:760px}
   .hero h1 em{font-style:normal;color:var(--coral);display:block}
-  .hero p.lead{font-size:clamp(18px,2.4vw,21px);max-width:620px;color:#d9d4c8;margin:0 0 30px}
-  .status{display:inline-flex;align-items:center;gap:10px;background:var(--ink-3);border:1px solid #33443a;border-radius:999px;padding:9px 16px;font-size:14px;margin-bottom:34px}
-  .status i{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(243,205,107,.2)}
-  .choices{display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative}
+  .hero .lead{font-size:clamp(19px,2.4vw,24px);max-width:600px;margin:0 0 28px;font-weight:600}
+  .status{display:inline-flex;align-items:center;gap:10px;background:var(--char-2);border:1px solid var(--char-3);border-radius:999px;padding:10px 16px;font-size:14px;margin-bottom:36px}
+  .status i{width:9px;height:9px;border-radius:50%;background:var(--yellow);flex:none}
+  .choices{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   @media (max-width:760px){.choices{grid-template-columns:1fr}}
-  .choice{border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px}
-  .choice.base{background:var(--cream);color:var(--ink)}
-  .choice.novo{background:var(--coral);color:var(--ink)}
-  .choice .tag{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
-  .choice h3{font-size:clamp(26px,3.4vw,32px)}
-  .choice p{margin:0}
-  .choice .btn{align-self:flex-start;margin-top:6px;background:var(--ink);color:var(--cream)}
+  .choice{border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+  .choice.base{background:var(--cream);color:var(--char)}
+  .choice.novo{background:var(--coral);color:var(--char)}
+  .choice .tag{font-size:14px;font-weight:700}
+  .choice h3{font-size:clamp(28px,3.6vw,36px);font-weight:800;letter-spacing:-.02em;max-width:88%}
+  .choice p{margin:0;max-width:90%}
+  .choice .btn{align-self:flex-start;margin-top:8px}
+  .choice img.shape{position:absolute;right:-18px;bottom:-18px;width:110px;opacity:.9}
 
-  section{padding:76px 0}
-  .intro{max-width:680px;margin:14px 0 40px;color:var(--muted);font-size:18px}
-  .intro strong{color:var(--text)}
+  section{padding:80px 0}
+  .intro{max-width:680px;margin:18px 0 40px;color:var(--muted);font-size:19px}
+  .intro strong{color:var(--char)}
 
-  /* escada */
   .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;margin:10px 0 18px}
-  .rung{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;position:relative}
-  .rung:nth-child(1){min-height:170px}.rung:nth-child(2){min-height:205px}.rung:nth-child(3){min-height:250px}.rung:nth-child(4){min-height:295px;background:var(--ink);color:var(--cream);border-color:var(--ink)}
-  .rung .n{font:900 44px/1 Fraunces,serif}
-  .rung .u{font-size:14px;color:var(--muted)}
-  .rung:nth-child(4) .u{color:#b9b3a5}
-  .rung .gain{margin-top:12px;display:inline-block;align-self:flex-start;background:var(--gold);color:var(--ink);font-weight:700;font-size:15px;padding:6px 12px;border-radius:999px}
-  .rung .tot{font-size:14px;margin-top:6px}
-  .rung .tot b{font-size:18px}
+  .rung{border-radius:24px;padding:20px 18px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;color:var(--char)}
+  .rung:nth-child(1){min-height:170px;background:var(--yellow)}
+  .rung:nth-child(2){min-height:210px;background:var(--peach)}
+  .rung:nth-child(3){min-height:255px;background:var(--pink)}
+  .rung:nth-child(4){min-height:300px;background:var(--coral)}
+  .rung .n{font-size:15px;font-weight:600}
+  .rung .v{font:800 64px/1 "Poligrapher",sans-serif;letter-spacing:-.04em;margin-top:6px}
+  .rung .u{font-size:16px;font-weight:700}
+  .rung .gain{margin-top:12px;align-self:flex-start;background:var(--char);color:var(--white);font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px}
   @media (max-width:640px){.ladder{grid-template-columns:1fr 1fr}.rung:nth-child(n){min-height:0}}
   .note{font-size:15px;color:var(--muted)}
 
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px 0}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:48px 0}
   @media (max-width:760px){.steps{grid-template-columns:1fr}}
-  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-  .step .num{width:38px;height:38px;border-radius:50%;background:var(--sage);color:#fff;display:grid;place-items:center;font:700 17px/1 "DM Sans";margin-bottom:14px}
+  .step{background:var(--white);border-radius:24px;padding:26px}
+  .step .num{width:42px;height:42px;border-radius:50%;background:var(--coral);color:var(--char);display:grid;place-items:center;font:800 18px/1 "Poligrapher";margin-bottom:16px}
   .step p{margin:8px 0 0;color:var(--muted)}
 
-  .two{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+  .two{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
   @media (max-width:860px){.two{grid-template-columns:1fr}}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .card.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-  .card.dark p{color:#d6d0c3}
-  .checks{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:12px}
-  .checks li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
-  .checks svg{width:22px;height:22px;color:var(--sage);margin-top:2px}
+  .card{background:var(--white);border-radius:24px;padding:28px;position:relative;overflow:hidden}
+  .card.dark{background:var(--char);color:var(--white)}
+  .card.dark p{color:#e3dcd5}
+  .card.dark img.shape{position:absolute;right:18px;bottom:18px;width:76px}
+  .checks{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:12px}
+  .checks li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start}
+  .checks svg{width:24px;height:24px;color:var(--olive);margin-top:1px}
 
-  /* formulário */
-  #indicar{background:var(--cream)}
+  #indicar{background:var(--beige)}
   form{display:grid;gap:16px}
-  label{display:grid;gap:6px;font-weight:500;font-size:15px}
-  input[type=text],input[type=tel]{width:100%;padding:13px 14px;border:1.5px solid #d7cfbf;border-radius:12px;font:400 16px "DM Sans",sans-serif;background:#fff;color:var(--text)}
+  label{display:grid;gap:6px;font-weight:600;font-size:15px}
+  input[type=text],input[type=tel]{width:100%;padding:14px 16px;border:1.5px solid #cdbfb2;border-radius:14px;font:400 16px "Poligrapher",sans-serif;background:var(--white);color:var(--text)}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media (max-width:560px){.row2{grid-template-columns:1fr}}
   .ref-list{display:grid;gap:10px}
-  .ref{display:grid;grid-template-columns:28px 1fr 1fr 36px;gap:10px;align-items:center}
-  .ref .i{font-weight:700;color:var(--muted);text-align:center}
-  .ref button{width:36px;height:36px;border-radius:10px;border:1.5px solid #d7cfbf;background:#fff;cursor:pointer;font-size:18px;color:var(--muted)}
-  @media (max-width:560px){.ref{grid-template-columns:24px 1fr 36px}.ref input[type=tel]{grid-column:2/3}}
-  .counter{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;background:var(--ink);color:var(--cream);border-radius:14px;padding:16px 18px;font-size:15px}
-  .counter b{font:900 28px/1 Fraunces,serif;color:var(--gold)}
-  .bar{flex:1 1 220px;height:10px;background:#2c3a31;border-radius:99px;overflow:hidden;position:relative}
-  .bar span{position:absolute;inset:0 auto 0 0;background:var(--coral);border-radius:99px;transition:width .25s ease}
+  .ref{display:grid;grid-template-columns:28px 1fr 1fr 40px;gap:10px;align-items:center}
+  .ref .i{font-weight:800;text-align:center}
+  .ref button{width:40px;height:40px;border-radius:12px;border:1.5px solid #cdbfb2;background:var(--white);cursor:pointer;font-size:18px;color:var(--muted)}
+  @media (max-width:560px){.ref{grid-template-columns:24px 1fr 40px}.ref input[type=tel]{grid-column:2/3}}
+  .counter{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;background:var(--char);color:var(--white);border-radius:20px;padding:18px 20px;font-size:15px}
+  .counter b{font:800 32px/1 "Poligrapher",sans-serif;color:var(--coral)}
+  .bar{flex:1 1 220px;height:10px;background:var(--char-3);border-radius:99px;overflow:hidden;position:relative}
+  .bar span{position:absolute;inset:0 auto 0 0;background:var(--yellow);border-radius:99px;transition:width .25s ease}
   .check{display:flex;gap:10px;align-items:flex-start;font-weight:400}
-  .check input{width:20px;height:20px;margin-top:2px;accent-color:var(--sage)}
-  .err{color:#b3261e;font-size:14px;min-height:18px}
+  .check input{width:20px;height:20px;margin-top:2px;accent-color:var(--char)}
+  .err{color:#a33a2c;font-size:14px;min-height:18px}
   .actions{display:flex;flex-wrap:wrap;gap:12px}
 
-  /* semana grátis */
-  #semana{background:var(--ink);color:var(--cream)}
-  #semana .intro{color:#cfc9bb}
-  #semana .intro strong{color:var(--cream)}
-  .freq{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 36px}
+  #semana{background:var(--char);color:var(--white);overflow:hidden}
+  #semana .intro{color:#e3dcd5}
+  #semana .intro strong{color:var(--white)}
+  #semana .deco{position:absolute;right:0;top:-10px;width:120px}
+  .freq{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 40px}
   @media (max-width:640px){.freq{grid-template-columns:1fr}}
-  .freq > div{background:var(--ink-3);border:1px solid #33443a;border-radius:var(--radius);padding:22px}
-  .freq .x{font-size:15px;color:#b9b3a5}
-  .freq .v{font:900 34px/1.1 Fraunces,serif;color:var(--coral);margin-top:6px}
-  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:0 0 40px;position:relative}
-  .timeline:before{content:"";position:absolute;left:8%;right:8%;top:17px;border-top:3px dashed var(--sage)}
+  .freq > div{border-radius:24px;padding:24px;color:var(--char)}
+  .freq > div:nth-child(1){background:var(--sky)}
+  .freq > div:nth-child(2){background:var(--lav)}
+  .freq > div:nth-child(3){background:var(--peach)}
+  .freq .x{font-size:15px;font-weight:600}
+  .freq .v{font:800 38px/1.05 "Poligrapher",sans-serif;letter-spacing:-.03em;margin-top:6px}
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 44px;position:relative}
+  .timeline:before{content:"";position:absolute;left:10%;right:10%;top:19px;border-top:3px dashed var(--char-3)}
   .tl{text-align:center;position:relative;padding:0 8px}
-  .tl .dot{width:36px;height:36px;border-radius:50%;background:var(--sage);margin:0 auto 12px;border:6px solid var(--ink)}
-  .tl.d .dot{background:var(--coral);width:44px;height:44px;margin-top:-4px}
-  .tl .dt{font:700 26px/1 Fraunces,serif}
-  .tl .ds{font-size:14px;color:#cfc9bb;margin-top:4px}
-  .lead-form{background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:26px}
-  .lead-form h3{margin-bottom:6px}
+  .tl .dot{width:40px;height:40px;border-radius:50%;background:var(--yellow);margin:0 auto 12px;border:7px solid var(--char)}
+  .tl.d .dot{background:var(--coral);width:48px;height:48px;margin-top:-4px}
+  .tl .dt{font:800 30px/1 "Poligrapher",sans-serif;letter-spacing:-.03em}
+  .tl .ds{font-size:14px;color:#e3dcd5;margin-top:6px}
+  .lead-form{background:var(--cream);color:var(--char);border-radius:28px;padding:28px}
 
-  /* regras e faq */
-  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 20px;margin-bottom:12px}
-  summary{cursor:pointer;list-style:none;padding:18px 0;font:700 17px/1.3 "DM Sans";display:flex;justify-content:space-between;gap:16px}
+  details{background:var(--white);border-radius:18px;padding:0 22px;margin-bottom:12px}
+  summary{cursor:pointer;list-style:none;padding:20px 0;font:700 17px/1.3 "Poligrapher";display:flex;justify-content:space-between;gap:16px}
   summary::-webkit-details-marker{display:none}
-  summary:after{content:"+";font-size:24px;line-height:1;color:var(--sage)}
+  summary:after{content:"+";font-size:26px;line-height:.8;color:var(--coral-d);font-weight:800}
   details[open] summary:after{content:"–"}
-  details ol,details ul{margin:0 0 18px;padding-left:22px}
+  details ol{margin:0 0 20px;padding-left:22px}
   details li{margin-bottom:8px}
-  details p{margin:0 0 18px;color:var(--muted)}
+  details p{margin:0 0 20px;color:var(--muted)}
 
-  footer{background:var(--ink);color:#b9b3a5;padding:40px 0;font-size:14px}
+  footer{background:var(--char);color:#d9d1ca;padding:40px 0;font-size:14px}
   footer .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
-  footer img{height:48px;width:auto}
+  footer img{height:34px;width:auto}
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#topo" aria-label="Bilin Black Friday, início"><img src="../assets/logo-escuro.png" alt="Bilin"><span>Black Friday</span></a>
+    <a class="brand" href="#topo" aria-label="Bilin Black Friday, início"><img src="../assets/logo-branco.png" alt="Bilin"><span>Black Friday</span></a>
     <nav aria-label="Seções">
       <a href="#indique">Indique e ganhe</a>
       <a href="#semana">Semana grátis</a>
@@ -170,24 +172,28 @@
 
 <main id="topo">
 <section class="hero">
-  <div class="arc" aria-hidden="true"></div>
+  <img class="deco mala" src="../assets/mala.png" alt="" aria-hidden="true">
+  <img class="deco flor" src="../assets/formas/flor.png" alt="" aria-hidden="true">
+  <img class="deco gota" src="../assets/formas/gota.png" alt="" aria-hidden="true">
   <div class="wrap">
-    <span class="eyebrow">Outubro 2026 · A Black Friday da Bilin chegou mais cedo</span>
+    <div class="pills"><span class="pill white"><img src="../assets/icone.png" alt="">Ensino Bilin</span><span class="pill coral">Outubro 2026</span></div>
     <h1>Bilin <em>Black Friday</em></h1>
-    <p class="lead">Um mês inteiro de aulas grátis para quem indica e uma semana grátis para quem chega agora.</p>
+    <p class="lead"><span class="under">A Black Friday da Bilin chegou mais cedo:</span> aulas grátis para quem indica e uma semana grátis para quem chega.</p>
     <div class="status" id="status"><i></i><span>Indicações de 01 a 31/10 · Semana grátis para quem fechar de 23/10 a 06/11</span></div>
     <div class="choices">
       <div class="choice base">
         <span class="tag">Já é Bilin?</span>
         <h3>Indique amigos e ganhe até 6 aulas grátis</h3>
         <p>A cada 5 indicações válidas, você acumula aulas. Vale o mês de outubro inteiro.</p>
-        <a class="btn" href="#indique">Quero indicar</a>
+        <a class="btn btn-dark" href="#indique">Quero indicar</a>
+        <img class="shape" src="../assets/formas/casa.png" alt="" aria-hidden="true">
       </div>
       <div class="choice novo">
         <span class="tag">Ainda não é Bilin?</span>
         <h3>Ganhe 1 semana de aulas grátis</h3>
         <p>Feche sua matrícula entre 23/10 e 06/11. Vale para qualquer plano e qualquer frequência.</p>
-        <a class="btn" href="#semana">Quero minha semana grátis</a>
+        <a class="btn btn-dark" href="#semana">Quero minha semana grátis</a>
+        <img class="shape" src="../assets/formas/arco.png" alt="" aria-hidden="true">
       </div>
     </div>
   </div>
@@ -195,15 +201,15 @@
 
 <section id="indique">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--sage)">Para quem já é Bilin</span>
+    <div class="pills"><span class="pill olive">Para quem já é Bilin</span></div>
     <h2>Indique e ganhe</h2>
     <p class="intro">Durante todo o mês de outubro, cada família que você indicar conta pontos. <strong>A família indicada não precisa fechar matrícula para a sua indicação valer.</strong> Quanto mais você indica, mais aulas ganha.</p>
 
     <div class="ladder" role="list" aria-label="Recompensas por número de indicações">
-      <div class="rung" role="listitem"><span class="n">5</span><span class="u">indicações</span><span class="gain">+1 aula</span><span class="tot">Total: <b>1 aula</b></span></div>
-      <div class="rung" role="listitem"><span class="n">10</span><span class="u">indicações</span><span class="gain">+1 aula</span><span class="tot">Total: <b>2 aulas</b></span></div>
-      <div class="rung" role="listitem"><span class="n">15</span><span class="u">indicações</span><span class="gain">+2 aulas</span><span class="tot">Total: <b>4 aulas</b></span></div>
-      <div class="rung" role="listitem"><span class="n">20</span><span class="u">indicações</span><span class="gain">+2 aulas</span><span class="tot">Total: <b>6 aulas</b></span></div>
+      <div class="rung" role="listitem"><span class="n">5 indicações</span><span class="v">1</span><span class="u">aula grátis</span><span class="gain">+1 aula</span></div>
+      <div class="rung" role="listitem"><span class="n">10 indicações</span><span class="v">2</span><span class="u">aulas grátis</span><span class="gain">+1 aula</span></div>
+      <div class="rung" role="listitem"><span class="n">15 indicações</span><span class="v">4</span><span class="u">aulas grátis</span><span class="gain">+2 aulas</span></div>
+      <div class="rung" role="listitem"><span class="n">20 indicações</span><span class="v">6</span><span class="u">aulas grátis</span><span class="gain">+2 aulas</span></div>
     </div>
     <p class="note">As aulas se acumulam: com 20 indicações válidas você ganha 6 aulas grátis, o máximo da campanha.</p>
 
@@ -217,16 +223,17 @@
       <div class="card">
         <h3>O que é uma indicação válida</h3>
         <ul class="checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Uma família que nunca estudou na Bilin, ou que está há mais de 6 meses sem aulas.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Com nome e WhatsApp do responsável.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Que ainda não foi indicada por outra pessoa. Vale a primeira indicação que recebermos.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Que responda ao contato da nossa equipe até 06/11. Por isso, avise seus amigos que vamos chamar.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Uma família que nunca estudou na Bilin, ou que está há mais de 6 meses sem aulas.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Com nome e WhatsApp do responsável.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Que ainda não foi indicada por outra pessoa. Vale a primeira indicação que recebermos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Que responda ao contato da nossa equipe até 06/11. Por isso, avise seus amigos que vamos chamar.</span></li>
         </ul>
       </div>
       <div class="card dark">
-        <span class="eyebrow" style="color:var(--gold)">Bônus para os seus amigos</span>
-        <h3 style="margin:10px 0 10px;font-size:28px">Quem você indicar ganha 1 semana de aulas grátis</h3>
-        <p>Se a família indicada fechar a matrícula entre 23/10 e 06/11, a primeira semana de aulas é por nossa conta. Todo mundo ganha.</p>
+        <div class="pills" style="margin-bottom:14px"><span class="pill yellow">Bônus para os seus amigos</span></div>
+        <h3 style="font-size:30px;font-weight:800;margin-bottom:12px;max-width:85%">Quem você indicar ganha 1 semana de aulas grátis</h3>
+        <p style="max-width:80%">Se a família indicada fechar a matrícula entre 23/10 e 06/11, a primeira semana de aulas é por nossa conta. Todo mundo ganha.</p>
+        <img class="shape" src="../assets/formas/flor.png" alt="" aria-hidden="true">
       </div>
     </div>
   </div>
@@ -234,7 +241,7 @@
 
 <section id="indicar">
   <div class="wrap" style="max-width:820px">
-    <span class="eyebrow" style="color:var(--sage)">Formulário de indicação</span>
+    <div class="pills"><span class="pill white"><img src="../assets/icone.png" alt="">Formulário de indicação</span></div>
     <h2>Envie suas indicações</h2>
     <p class="intro">Preencha e toque em enviar. Sua mensagem abre pronta no WhatsApp da Bilin. Pode mandar em vários envios: a gente soma tudo.</p>
 
@@ -244,7 +251,7 @@
         <label>Nome do aluno Bilin<input type="text" id="rStudent" required></label>
       </div>
       <div>
-        <div style="font-weight:500;font-size:15px;margin-bottom:8px">Famílias indicadas (nome e WhatsApp)</div>
+        <div style="font-weight:600;font-size:15px;margin-bottom:8px">Famílias indicadas (nome e WhatsApp)</div>
         <div class="ref-list" id="refList"></div>
       </div>
       <div class="actions"><button type="button" class="btn btn-ghost" id="addRef">+ Adicionar indicação</button></div>
@@ -256,7 +263,7 @@
       <label class="check"><input type="checkbox" id="rAware"> Avisei meus indicados que a Bilin vai entrar em contato.</label>
       <div class="err" id="rErr" role="alert"></div>
       <div class="actions">
-        <button type="submit" class="btn btn-sage"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Enviar pelo WhatsApp</button>
+        <button type="submit" class="btn btn-coral"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Enviar pelo WhatsApp</button>
       </div>
     </form>
   </div>
@@ -264,7 +271,8 @@
 
 <section id="semana">
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--gold)">Para quem ainda não é Bilin</span>
+    <img class="deco" src="../assets/mala.png" alt="" aria-hidden="true" style="position:absolute;right:20px;top:0;width:110px;transform:rotate(-8deg)">
+    <div class="pills"><span class="pill coral">Para quem ainda não é Bilin</span></div>
     <h2>1 semana de aulas grátis</h2>
     <p class="intro">Feche sua matrícula entre <strong>23/10 e 06/11</strong> e a primeira semana de aulas é por nossa conta, <strong>seja qual for a frequência</strong>. Na prática, seu primeiro mês tem 5 semanas.</p>
 
@@ -281,8 +289,8 @@
     </div>
 
     <div class="lead-form">
-      <h3>Garanta sua semana grátis</h3>
-      <p class="note" style="margin:0 0 16px">Vale para os planos mensal, semestral e anual, e soma com os descontos dos planos.</p>
+      <h3 style="font-size:28px;font-weight:800">Garanta sua semana grátis</h3>
+      <p class="note" style="margin:6px 0 18px">Vale para os planos mensal, semestral e anual, e soma com os descontos dos planos.</p>
       <form id="leadForm" novalidate>
         <div class="row2">
           <label>Seu nome<input type="text" id="lName" autocomplete="name" required></label>
@@ -297,7 +305,7 @@
 
 <section id="regras">
   <div class="wrap" style="max-width:860px">
-    <span class="eyebrow" style="color:var(--sage)">Regulamento</span>
+    <div class="pills"><span class="pill olive">Regulamento</span></div>
     <h2 style="margin-bottom:28px">Regras da campanha</h2>
 
     <details open>
@@ -346,7 +354,7 @@
 
 <footer>
   <div class="wrap">
-    <img src="../assets/logo-escuro.png" alt="Bilin">
+    <img src="../assets/logo-branco.png" alt="Bilin">
     <span>Bilin Black Friday · Outubro 2026 · Consulte o regulamento acima.</span>
   </div>
 </footer>
@@ -416,7 +424,7 @@
     var nx = nextStep(n), t = tier(n), hint;
     if (nx === null) hint = 'Se todas forem válidas, você chega ao máximo: 6 aulas grátis!';
     else if (t === 0) hint = 'Faltam ' + (nx - n) + ' para sua 1ª aula grátis.';
-    else hint = 'Se todas forem válidas, já são ' + t + (t === 1 ? ' aula' : ' aulas') + '. Faltam ' + (nx - n) + ' para ' + tier(nx) + ' aulas.';
+    else hint = 'Se todas forem válidas, ' + (t === 1 ? 'já vale 1 aula' : 'já valem ' + t + ' aulas') + '. Faltam ' + (nx - n) + ' para ' + tier(nx) + ' aulas.';
     document.getElementById('cHint').textContent = hint;
   }
   for (var k = 0; k < 5; k++) addRow();

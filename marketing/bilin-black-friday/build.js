@@ -18,9 +18,11 @@ const OUT = path.join(ROOT, 'entregaveis');
 
 function inline(file) {
   let html = fs.readFileSync(path.join(SRC, file), 'utf8');
-  return html.replace(/(["'(])\.\.\/assets\/([\w.-]+\.png)/g, (_, q, name) => {
+  html = html.replace('/*@fonts*/', fs.readFileSync(path.join(SRC, '_fonts.css'), 'utf8'));
+  return html.replace(/(["'(])\.\.\/assets\/([\w./-]+\.(png|ttf))/g, (_, q, name, ext) => {
     const b64 = fs.readFileSync(path.join(ROOT, 'assets', name)).toString('base64');
-    return `${q}data:image/png;base64,${b64}`;
+    const mime = ext === 'ttf' ? 'font/ttf' : 'image/png';
+    return `${q}data:${mime};base64,${b64}`;
   });
 }
 

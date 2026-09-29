@@ -11,6 +11,7 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 | `3-story-instagram-2-indique-e-ganhe.png` | Story 1080x1920 para quem já é Bilin |
 | `4-arte-whatsapp-base.png` | Arte 1080x1350 para WhatsApp individual e grupo de recados |
 | `5-email-base.html` / `.txt` | E-mail para a base, com opções de assunto e pré-cabeçalho |
+| `5-email-logo.png` | Logo branco para o topo do e-mail |
 | `6-whatsapp-texto.txt` | Texto com regras e instruções para enviar com a arte, versão curta e lembretes |
 
 ## Datas da campanha
@@ -26,7 +27,7 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 ## Antes de publicar
 
 1. **Número de WhatsApp.** Na landing page, troque `5500000000000` pelo número da Bilin com DDI e DDD, só dígitos. Fica no bloco `CONFIG` no fim de `src/landing.html`. Depois rode o build de novo.
-2. **Links do e-mail e do WhatsApp.** Troque `{{LINK_LANDING}}` pelo endereço da landing page e `{{LINK_WHATSAPP}}` por `https://wa.me/<número>`.
+2. **Links do e-mail e do WhatsApp.** Troque `{{LINK_LANDING}}` pelo endereço da landing page e `{{LINK_WHATSAPP}}` por `https://wa.me/<número>`. No e-mail, suba `5-email-logo.png` na ferramenta de envio e troque `{{URL_LOGO}}` pelo endereço da imagem.
 3. **Teste no celular.** Abra a landing page, preencha o formulário e confira se a mensagem chega no WhatsApp da Bilin.
 
 ## Como publicar a landing page numa aba do sistema
@@ -43,6 +44,17 @@ A página é um HTML único, sem dependência de servidor. Duas etapas:
 
 2. **Criar a aba no app.** No FlutterFlow, crie uma página "Black Friday" no menu com um widget WebView apontando para a URL publicada. Outra opção é um botão com a ação Launch URL.
 
+## Identidade visual
+
+Tudo segue o Mini Manual de Identidade Visual da pasta de comunicação da Bilin no Drive.
+
+- **Logo:** marca principal sem brilho, versão branca em fundo escuro e versão preta em fundo claro.
+- **Cores:** coral `#F69897`, grafite `#333132`, creme `#F9F2EB` e bege `#E5D8CC`, com a paleta secundária nos destaques.
+- **Fonte:** Poligrapher Grotesk, embutida na landing page, no PDF e nas artes. O e-mail usa Helvetica ou Arial, porque os programas de e-mail não carregam fontes próprias.
+- **Elementos:** a mala B e as formas complementares, que estão em `assets/`.
+
+Antes de publicar a landing page, confirme que a licença da Poligrapher Grotesk permite uso na web.
+
 ## Como alterar textos, datas ou artes
 
 Os originais estão em `src/`. Depois de editar, gere tudo de novo:
@@ -52,6 +64,6 @@ cd marketing/bilin-black-friday
 NODE_PATH=$(npm root -g) node build.js
 ```
 
-O build usa Playwright com Chromium. As fontes Fraunces e DM Sans precisam estar instaladas no sistema para as artes e o PDF saírem com a tipografia certa. A landing page carrega as fontes do Google Fonts sozinha.
+O build usa Playwright com Chromium e embute a fonte da marca a partir de `assets/fonts`. A landing page carrega as fontes do Google Fonts sozinha.
 
 Se a campanha mudar de mês, as datas aparecem em todos os arquivos de `src/`, no e-mail e no texto de WhatsApp. Procure por `01/10`, `31/10`, `23/10`, `30/10`, `06/11`, `10/11`, `16/11` e `30/04`.
