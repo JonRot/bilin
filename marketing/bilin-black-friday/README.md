@@ -1,4 +1,4 @@
-# Bilin Black Friday · Outubro 2026
+# Bilin Black Friday · 16/11 a 07/12/2026
 
 Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`.
 
@@ -18,11 +18,11 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 
 | Data | O que acontece |
 |---|---|
-| 01/10 a 31/10 | Clientes indicam e acumulam aulas: 5 = 1, 10 = 2, 15 = 4, 20 = 6 |
-| 23/10 a 06/11 | Novos alunos que fecham ganham 1 semana de aulas grátis |
-| 30/10 | Dia Bilin Black Friday |
-| 10/11 | Resultado final das indicações |
-| 16/11 a 30/04/2027 | Uso das aulas grátis |
+| 16/11 a 07/12 | Clientes indicam e acumulam aulas: 5 = 1, 10 = 2, 15 = 4, 20 = 6. Vale o indicado que preencher o cadastro |
+| 16/11 a 07/12 | Novos alunos que fecham ganham 1 semana de aulas grátis |
+| 27/11 | Dia Bilin Black Friday |
+| 14/12 | Resultado final das indicações |
+| 15/12/2026 a 30/06/2027 | Uso das aulas grátis, direto nas aulas normais |
 
 ## Antes de publicar
 
@@ -70,4 +70,4 @@ NODE_PATH=$(npm root -g) node build.js
 
 O build usa Playwright com Chromium e embute a fonte da marca a partir de `assets/fonts`. A landing page carrega as fontes do Google Fonts sozinha.
 
-Se a campanha mudar de mês, as datas aparecem em todos os arquivos de `src/`, no e-mail e no texto de WhatsApp. Procure por `01/10`, `31/10`, `23/10`, `30/10`, `06/11`, `10/11`, `16/11` e `30/04`.
+Se a campanha mudar de mês, as datas aparecem em todos os arquivos de `src/`, no e-mail e no texto de WhatsApp. Procure por `16/11`, `27/11`, `07/12`, `14/12`, `15/12`, `30/06` e `15/01`. No sistema, as datas ficam na constante `BF2026` (Bilin-BMAD, `src/constants/referral-campaign.ts`). Datas anteriores (campanha de outubro) foram trocadas em 06/11/2026.

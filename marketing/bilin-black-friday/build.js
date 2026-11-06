@@ -35,7 +35,7 @@ async function open(browser, html, width, height) {
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const browser = await chromium.launch({ executablePath: process.env.CHROMIUM || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+  const browser = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 
   // 1. Landing page (arquivo único)
   fs.mkdirSync(path.join(OUT, '2-landing-page'), { recursive: true });
