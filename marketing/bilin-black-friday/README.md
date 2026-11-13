@@ -22,7 +22,7 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 | 16/11 a 07/12 | Novos alunos que fecham ganham 1 semana de aulas grátis |
 | 27/11 | Dia Bilin Black Friday |
 | 14/12 | Resultado final das indicações |
-| 15/12/2026 a 30/06/2027 | Uso das aulas grátis, direto nas aulas normais |
+| 15/12/2026 a 30/06/2027 | Uso das aulas extras grátis, direto nas aulas normais |
 
 ## Antes de publicar
 
