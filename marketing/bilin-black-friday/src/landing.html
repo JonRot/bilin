@@ -185,7 +185,7 @@
         <span class="tag">Já é Bilin?</span>
         <h3>Indique amigos e ganhe até 6 aulas grátis</h3>
         <p>A cada 5 indicações válidas, você acumula aulas. Vale de 16/11 a 07/12.</p>
-        <a class="btn btn-dark" href="#indique">Quero indicar</a>
+        <a class="btn btn-dark" href="#indicar">Quero indicar</a>
         <img class="shape" src="../assets/formas/casa.png" alt="" aria-hidden="true">
       </div>
       <div class="choice novo">
@@ -214,8 +214,8 @@
     <p class="note">As aulas se acumulam: com 20 indicações válidas você ganha 6 aulas grátis, o máximo da campanha.</p>
 
     <div class="steps">
-      <div class="step"><div class="num">1</div><h3>Envie seus indicados</h3><p>Pelo formulário abaixo ou pelo nosso WhatsApp. Se preferir, mande direto o link <a href="https://app.ensinobilin.com/cadastro" target="_blank" rel="noopener">app.ensinobilin.com/cadastro</a>.</p></div>
-      <div class="step"><div class="num">2</div><h3>Eles preenchem o cadastro</h3><p>Leva poucos minutos e não tem compromisso. Em “Quem indicou?”, eles colocam o seu nome. Cadastro preenchido até 07/12 é indicação válida.</p></div>
+      <div class="step"><div class="num">1</div><h3>Envie seus indicados</h3><p>Pelo <a href="#indicar">formulário de indicação</a>, com o nome e o WhatsApp de cada família. Pode mandar quantas vezes quiser.</p></div>
+      <div class="step"><div class="num">2</div><h3>Eles preenchem o cadastro</h3><p>A gente manda o link do cadastro pelo WhatsApp. Leva poucos minutos e não tem compromisso. Cadastro preenchido até 07/12 é indicação válida.</p></div>
       <div class="step"><div class="num">3</div><h3>Você acumula aulas</h3><p>Toda semana mandamos o seu placar. O resultado sai em 14/12 e as aulas ficam disponíveis a partir de 15/12.</p></div>
     </div>
 
@@ -243,29 +243,14 @@
   <div class="wrap" style="max-width:820px">
     <div class="pills"><span class="pill white"><img src="../assets/icone.png" alt="">Formulário de indicação</span></div>
     <h2>Envie suas indicações</h2>
-    <p class="intro">Preencha e toque em enviar. Sua mensagem abre pronta no WhatsApp do Bilin. Pode mandar em vários envios: a gente soma tudo.</p>
-
-    <form id="refForm" novalidate>
-      <div class="row2">
-        <label>Seu nome<input type="text" id="rName" autocomplete="name" required></label>
-        <label>Nome do aluno Bilin<input type="text" id="rStudent" required></label>
-      </div>
-      <div>
-        <div style="font-weight:600;font-size:15px;margin-bottom:8px">Famílias indicadas (nome e WhatsApp)</div>
-        <div class="ref-list" id="refList"></div>
-      </div>
-      <div class="actions"><button type="button" class="btn btn-ghost" id="addRef">+ Adicionar indicação</button></div>
-      <div class="counter" aria-live="polite">
-        <b id="cNum">0</b><span id="cText">indicações neste envio</span>
-        <div class="bar" aria-hidden="true"><span id="cBar" style="width:0%"></span></div>
-        <span id="cHint">Com 5 indicações válidas você ganha 1 aula.</span>
-      </div>
-      <label class="check"><input type="checkbox" id="rAware"> Avisei meus indicados que o Bilin vai mandar o link do cadastro.</label>
-      <div class="err" id="rErr" role="alert"></div>
-      <div class="actions">
-        <button type="submit" class="btn btn-coral"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Enviar pelo WhatsApp</button>
-      </div>
-    </form>
+    <p class="intro">Preencha o formulário do Bilin com o nome e o WhatsApp de cada família que você indicar. As indicações entram direto no nosso sistema, somadas na sua família.</p>
+    <div class="actions"><a class="btn btn-coral" href="https://ensinobilin.com/indique" target="_blank" rel="noopener">Abrir formulário de indicação</a></div>
+    <div class="steps" style="margin-top:22px">
+      <div class="step"><div class="num">1</div><h3>Seus dados</h3><p>Seu nome e o seu WhatsApp, o mesmo cadastrado no Bilin, para somarmos as indicações na sua família.</p></div>
+      <div class="step"><div class="num">2</div><h3>Suas indicações</h3><p>Nome e WhatsApp de cada família indicada, até 20 por envio.</p></div>
+      <div class="step"><div class="num">3</div><h3>A gente cuida do resto</h3><p>Mandamos o link do cadastro para cada uma. Cadastro preenchido até 07/12 conta para as suas aulas grátis.</p></div>
+    </div>
+    <p class="note" style="margin-top:14px">Link direto do formulário: <a href="https://ensinobilin.com/indique" target="_blank" rel="noopener">ensinobilin.com/indique</a></p>
   </div>
 </section>
 
@@ -313,7 +298,7 @@
       <ol>
         <li>Participam famílias com aluno ativo no Bilin durante a campanha.</li>
         <li>Valem as indicações cujo cadastro for preenchido de 16/11 a 07/12/2026.</li>
-        <li>Indicação válida: família que nunca estudou no Bilin ou está há mais de 6 meses sem aulas, que não estava em conversa com o Bilin nos 6 meses antes da campanha, que ainda não foi indicada por outra pessoa e que preencha o cadastro do Bilin (<a href="https://app.ensinobilin.com/cadastro" target="_blank" rel="noopener">app.ensinobilin.com/cadastro</a>) com nome e WhatsApp do responsável até 07/12/2026, informando quem indicou. Irmãos no mesmo cadastro contam como uma família.</li>
+        <li>Indicação válida: família que nunca estudou no Bilin ou está há mais de 6 meses sem aulas, que não estava em conversa com o Bilin nos 6 meses antes da campanha, que ainda não foi indicada por outra pessoa e que preencha o cadastro do Bilin (<a href="https://ensinobilin.com/cadastro" target="_blank" rel="noopener">ensinobilin.com/cadastro</a>) com nome e WhatsApp do responsável até 07/12/2026, informando quem indicou. Irmãos no mesmo cadastro contam como uma família.</li>
         <li>A família indicada não precisa fechar matrícula para a indicação contar.</li>
         <li>Recompensas acumuladas por família: 5 indicações válidas = 1 aula; 10 = 2 aulas; 15 = 4 aulas; 20 = 6 aulas. O máximo da campanha é 6 aulas por família.</li>
         <li>Enviamos o placar toda semana. O resultado final sai até 14/12/2026.</li>
@@ -391,62 +376,6 @@
     if (v.length === 10) return '(' + v.slice(0,2) + ') ' + v.slice(2,6) + '-' + v.slice(6);
     return s.trim();
   }
-  function tier(n){ return n >= 20 ? 6 : n >= 15 ? 4 : n >= 10 ? 2 : n >= 5 ? 1 : 0; }
-  function nextStep(n){ return n < 5 ? 5 : n < 10 ? 10 : n < 15 ? 15 : n < 20 ? 20 : null; }
-
-  var list = document.getElementById('refList');
-  function addRow(){
-    var i = list.children.length + 1;
-    var row = document.createElement('div');
-    row.className = 'ref';
-    row.innerHTML = '<span class="i">' + i + '</span>' +
-      '<input type="text" placeholder="Nome do responsável" aria-label="Nome da indicação ' + i + '">' +
-      '<input type="tel" inputmode="tel" placeholder="WhatsApp com DDD" aria-label="WhatsApp da indicação ' + i + '">' +
-      '<button type="button" aria-label="Remover indicação ' + i + '">×</button>';
-    row.querySelector('button').onclick = function(){ if (list.children.length > 1) { row.remove(); renumber(); update(); } };
-    row.querySelectorAll('input').forEach(function(inp){ inp.addEventListener('input', update); });
-    list.appendChild(row);
-  }
-  function renumber(){
-    Array.prototype.forEach.call(list.children, function(r, k){ r.querySelector('.i').textContent = k + 1; });
-  }
-  function filled(){
-    return Array.prototype.map.call(list.children, function(r){
-      var ins = r.querySelectorAll('input');
-      return { nome: ins[0].value.trim(), tel: ins[1].value.trim() };
-    }).filter(function(x){ return x.nome || x.tel; });
-  }
-  function update(){
-    var n = filled().filter(function(x){ return x.nome && digits(x.tel).length >= 10; }).length;
-    document.getElementById('cNum').textContent = n;
-    document.getElementById('cText').textContent = n === 1 ? 'indicação neste envio' : 'indicações neste envio';
-    document.getElementById('cBar').style.width = Math.min(100, n / 20 * 100) + '%';
-    var nx = nextStep(n), t = tier(n), hint;
-    if (nx === null) hint = 'Se todas forem válidas, você chega ao máximo: 6 aulas grátis!';
-    else if (t === 0) hint = 'Faltam ' + (nx - n) + ' para sua 1ª aula grátis.';
-    else hint = 'Se todas forem válidas, ' + (t === 1 ? 'já vale 1 aula' : 'já valem ' + t + ' aulas') + '. Faltam ' + (nx - n) + ' para ' + tier(nx) + ' aulas.';
-    document.getElementById('cHint').textContent = hint;
-  }
-  for (var k = 0; k < 5; k++) addRow();
-  document.getElementById('addRef').onclick = function(){ addRow(); list.lastChild.querySelector('input').focus(); };
-
-  document.getElementById('refForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var err = document.getElementById('rErr');
-    var nome = document.getElementById('rName').value.trim();
-    var aluno = document.getElementById('rStudent').value.trim();
-    var refs = filled();
-    if (!nome || !aluno) { err.textContent = 'Preencha seu nome e o nome do aluno.'; return; }
-    if (!refs.length) { err.textContent = 'Adicione pelo menos uma indicação.'; return; }
-    var bad = refs.filter(function(x){ return !x.nome || digits(x.tel).length < 10; });
-    if (bad.length) { err.textContent = 'Confira nome e WhatsApp com DDD de todas as indicações.'; return; }
-    err.textContent = '';
-    var txt = 'Olá, Bilin! Quero participar do *Indique e Ganhe* da Black Friday do Bilin.\n\n' +
-      '*Meu nome:* ' + nome + '\n*Aluno(a):* ' + aluno + '\n\n*Minhas indicações (' + refs.length + '):*\n' +
-      refs.map(function(x, i){ return (i + 1) + '. ' + x.nome + ' – ' + fmtPhone(x.tel); }).join('\n') +
-      (document.getElementById('rAware').checked ? '\n\nJá avisei que o Bilin vai mandar o link do cadastro.' : '');
-    window.open(waLink(txt), '_blank');
-  });
 
   document.getElementById('leadForm').addEventListener('submit', function(e){
     e.preventDefault();
