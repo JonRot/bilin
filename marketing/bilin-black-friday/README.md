@@ -28,7 +28,7 @@ Kit completo da campanha. Os arquivos prontos para usar estão em `entregaveis/`
 
 1. **Número de WhatsApp.** Já configurado com o número do site, 5548992105010, na landing page e no e-mail. Se mudar, troque no bloco `CONFIG` no fim de `src/landing.html` e no e-mail, e rode o build de novo.
 2. **Links do e-mail e do WhatsApp.** Já apontam para https://ensinobilin.com/black-friday/. No e-mail, suba `5-email-logo.png` na ferramenta de envio e troque `{{URL_LOGO}}` pelo endereço da imagem.
-3. **Teste no celular.** Abra https://ensinobilin.com/black-friday/, preencha o formulário e confira se a mensagem chega no WhatsApp da Bilin.
+3. **Teste no celular.** Abra https://ensinobilin.com/black-friday/, preencha o formulário e confira se a mensagem chega no WhatsApp do Bilin.
 
 ## Onde a landing page está publicada
 
@@ -50,7 +50,7 @@ A página é um HTML único, sem dependência de servidor. Duas etapas:
 
 ## Identidade visual
 
-Tudo segue o Mini Manual de Identidade Visual da pasta de comunicação da Bilin no Drive.
+Tudo segue o Mini Manual de Identidade Visual da pasta de comunicação do Bilin no Drive.
 
 - **Logo:** marca principal sem brilho, versão branca em fundo escuro e versão preta em fundo claro.
 - **Cores:** coral `#F69897`, grafite `#333132`, creme `#F9F2EB` e bege `#E5D8CC`, com a paleta secundária nos destaques.
